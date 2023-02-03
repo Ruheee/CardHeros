@@ -3,11 +3,11 @@
     <a href="/">
       <img src="/images/Logo.png" alt="Card Heroes Logo">
     </a>
-    <form id="form" role="search">
+    <form id="form" method="POST" action="/cards" role="search">
       <input type="search" id="query" name="q"
        placeholder="Search..."
        aria-label="Search through site content">
-      <button>Search</button>
+      <button type="submit">Search</button>
     </form>
     <form class="" action="/login" method="GET">
       <button type="submit" class="btn btn-primary">Login</button>
