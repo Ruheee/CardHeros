@@ -1,11 +1,10 @@
 const db = require('../connection');
 
 
-const getBrands = (brand) => {
+const getBrands = () => {
   return db
-  .query(`SELECT *
-  FROM cards
-  WHERE cards.brand = $1;`, [brand])
+  .query(`SELECT DISTINCT brand
+  FROM cards;`)
     .then(data => {
       return data.rows;
     });
