@@ -32,6 +32,10 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const cardsSearch = require('./routes/cards-api')
+const cardRoutes = require('./routes/cards');
+const brandApiRoutes = require('./routes/getBrand-api')
+const sportApiRoutes = require('./routes/getSport-api')
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -40,6 +44,10 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/cards', cardsSearch);
+app.use('/cards', cardRoutes);
+app.use('/api/brands', brandApiRoutes);
+app.use('/api/sports', sportApiRoutes);
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -49,6 +57,7 @@ app.use('/cards', cardsSearch);
 app.get('/', (req, res) => {
   res.render('index');
 });
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
