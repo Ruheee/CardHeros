@@ -2,10 +2,9 @@ $(document).ready(() => {
   $('#get-brands').on('click', () => {
     $.ajax({
       method: 'GET',
-      url: '/api/cards',
+      url: '/api/brands',
     })
     .done((response) => {
-      console.log(response)
       const $BRANDLIST = $('#brands');
       $BRANDLIST.empty();
 
@@ -14,4 +13,6 @@ $(document).ready(() => {
       }
     });
   });
+
+
 })

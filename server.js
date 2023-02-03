@@ -32,7 +32,8 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const cardRoutes = require('./routes/cards');
-const cardApiRoutes = require('./routes/getBrand-api')
+const brandApiRoutes = require('./routes/getBrand-api')
+const sportApiRoutes = require('./routes/getSport-api')
 
 
 // Mount all resource routes
@@ -42,7 +43,8 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/cards', cardRoutes);
-app.use('/api/cards', cardApiRoutes)
+app.use('/api/brands', brandApiRoutes);
+app.use('/api/sports', sportApiRoutes);
 
 // Note: mount other resources here, using the same pattern above
 

@@ -1,10 +1,9 @@
 const db = require('../connection');
 
-const getSports = (sport) => {
+const getSports = () => {
   return db
-  .query(`SELECT *
-  FROM cards
-  WHERE cards.sport = $1`, [sport])
+  .query(`SELECT DISTINCT sport
+  FROM cards;`)
     .then(data => {
       return data.rows;
     });
