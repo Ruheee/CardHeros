@@ -19,6 +19,8 @@ CREATE TABLE cards (
   price INTEGER NOT NULL,
   is_sold BOOLEAN NOT NULL DEFAULT FALSE,
   description TEXT
+  card_front_url VARCHAR(255) NOT NULL,
+  card_back_url VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE messages (
