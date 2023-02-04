@@ -12,18 +12,28 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/card.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
+
 </head>
 
 <body>
-  <h1>My Favourites</h1>
-  <% for (let favourite of favourites) { %>
-    <img src='<%= favourite.card_front_url %>' >
-  <% } %>
+    <h1>My Favourites</h1>
+    <div class="cards">
+    <% for (let card of favourites) { %>
+      <%- include('./partials/_card.ejs', {card: card}) %>
+    <% } %>
+   </div>
 
-  <h1>My Cards</h1>
+
+    <h1>My Cards</h1>
+    <div class="cards">
+    <% for (let card of myCards) { %>
+      <%- include('./partials/_card.ejs', {card: card}) %>
+    <% } %>
+    </div>
 </body>
 
 </html>

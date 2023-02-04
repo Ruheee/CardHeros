@@ -1,6 +1,6 @@
 const db = require('../connection');
 
-const getFavourites = ( userID = 1 ) => {
+const getFavourites = ( userID ) => {
   return db.query(`
   SELECT cards.*
   FROM users

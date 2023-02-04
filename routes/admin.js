@@ -1,22 +1,29 @@
+const { query } = require('express');
 const express = require('express');
 const router  = express.Router();
 const favouritesQueries = require('../db/queries/favourites');
+const myCardsQueries = require('../db/queries/my-cards');
 
 router.get('/', (req, res) => {
-  // DELETE: Set a random number between 1 and 5 as the user id;
-  // req.session.userID = Math.floor(Math.random() * 5) + 1;
-  /*----------------------------------------------------------*/
+  const userID = 5;
+  const templateVars = { userID: userID };
 
-  const userID = 1;
-  favouritesQueries.getFavourites( userID )
-  .then(data => {
-    const templateVars = { userID, favourites: data };
+  const queryArr = [ favouritesQueries.getFavourites(userID), myCardsQueries.getMyCards(userID) ];
+
+  Promise.all(queryArr).then((values) => {
+    for (let card of values[0]) {
+      if (card.user_id != userID) {
+        templateVars['myCards'] = values[1];
+        templateVars['favourites'] = values[0];
+      }
+    }
+
+    if (!templateVars['myCards']) {
+      templateVars['myCards'] = values[0];
+      templateVars['favourites'] = values[1];
+    }
+
     res.render('ch_admin', templateVars);
-    console.log(templateVars);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).send('An error occurred');
   });
 });
 
