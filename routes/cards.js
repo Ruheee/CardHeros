@@ -7,12 +7,10 @@ const priceQueries = require('../db/queries/price-range');
 router.get('/', (req, res) => {
   const templateVars = {}
   const queryArr = [sportQueries.getSports(), brandQueries.getBrands()];
-
   Promise.all(queryArr)
   .then((values) => {
     templateVars[Object.keys(values[0][0])] = values[0];
     templateVars[Object.keys(values[1][0])] = values[1];
-
     res.render('ch_cards', templateVars)
   });
 });
