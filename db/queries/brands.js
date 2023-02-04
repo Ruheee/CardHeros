@@ -1,6 +1,5 @@
 const db = require('../connection');
 
-
 const getBrands = () => {
   return db
   .query(`SELECT DISTINCT brand

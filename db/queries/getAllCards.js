@@ -6,7 +6,7 @@ const getAllCards = () => {
   .query(`SELECT *
   FROM cards
   LIMIT 10;`)
-    .then(data => {console.log(data)
+    .then(data => {
       return data.rows;
     });
 };

@@ -4,7 +4,6 @@ $(document).ready(() => {
       url: '/api/cards',
     })
     .done((response) => {
-      console.log(response)
       const $ALLCARDS = $('#all-cards');
       $ALLCARDS.empty();
 
