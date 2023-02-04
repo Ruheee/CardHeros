@@ -1,16 +1,23 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into /users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require('express');
 const router  = express.Router();
+const favouritesQueries = require('../db/queries/favourites');
 
 router.get('/', (req, res) => {
-  res.render('ch_admin');
-});
+  // DELETE: Set a random number between 1 and 5 as the user id;
+  // req.session.userID = Math.floor(Math.random() * 5) + 1;
+  /*----------------------------------------------------------*/
 
+  const userID = 1;
+  favouritesQueries.getFavourites( userID )
+  .then(data => {
+    const templateVars = { userID, favourites: data };
+    res.render('ch_admin', templateVars);
+    console.log(templateVars);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).send('An error occurred');
+  });
+});
 
 module.exports = router;
