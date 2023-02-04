@@ -32,8 +32,9 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const cardRoutes = require('./routes/cards');
-const brandApiRoutes = require('./routes/getBrand-api')
-const sportApiRoutes = require('./routes/getSport-api')
+const brandApiRoutes = require('./routes/getBrand-api');
+const sportApiRoutes = require('./routes/getSport-api');
+const userLogin = require('./routes/login');
 
 
 // Mount all resource routes
@@ -45,7 +46,7 @@ app.use('/users', usersRoutes);
 app.use('/cards', cardRoutes);
 app.use('/api/brands', brandApiRoutes);
 app.use('/api/sports', sportApiRoutes);
-
+app.use('/login', userLogin);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
