@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Card Heroes</title>
+
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/users.js"></script>
+  <script src="/scripts/card"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <%- include('partials/_header') %>
+<h1>Test</h1>
+<% console.log(result) %>
+  <% for (let item of result) { %>
+    <h2><%= item.sport %></h2>
+    <img src="<%= item.card_front_url %>" alt="<%= item.title %>">
+<% } %>
+
+
+
+</html>

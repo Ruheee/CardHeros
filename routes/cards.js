@@ -16,11 +16,10 @@ router.post('/', (req, res) => {
   //look into the database for the word entered in sports
   sportsQuery.getCardBySport(sport)
     .then(result => {
-      console.log(result[0].id)
-      // const templateVars = result[0].card_front.result
-      // console.log(templateVars)
+      const templateVars = { result }
+      // console.log(templateVars.result[0])
       // res.json({ result });
-      res.render('ch_cards')
+      res.render('search', templateVars)
     })
     .catch(err => {
       res
