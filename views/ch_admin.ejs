@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title><%= userID %> | Card Heroes</title>
+
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/card.css" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/users.js"></script>
+
+</head>
+
+<body>
+    <h1>My Favourites</h1>
+    <div class="cards">
+    <% for (let card of favourites) { %>
+      <%- include('./partials/_card.ejs', {card: card}) %>
+    <% } %>
+   </div>
+
+
+    <h1>My Cards</h1>
+    <div class="cards">
+    <% for (let card of myCards) { %>
+      <%- include('./partials/_card.ejs', {card: card}) %>
+    <% } %>
+    </div>
+</body>
+
+</html>
