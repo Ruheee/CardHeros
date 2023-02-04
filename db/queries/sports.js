@@ -9,4 +9,12 @@ const getSports = () => {
     });
 };
 
-module.exports = { getSports };
+const getCardBySport = sport => {
+  return db
+    .query(`SELECT * FROM cards WHERE sport = $1;`, [sport])
+    .then(data => {
+      return data.rows;
+    })
+};
+
+module.exports = { getSports, getCardBySport };

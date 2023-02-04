@@ -31,7 +31,6 @@ app.use(express.static('public'));
 const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
-const cardsSearch = require('./routes/cards-api')
 const cardRoutes = require('./routes/cards');
 const brandApiRoutes = require('./routes/getBrand-api')
 const sportApiRoutes = require('./routes/getSport-api')
@@ -43,7 +42,6 @@ const sportApiRoutes = require('./routes/getSport-api')
 app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
-app.use('/cards', cardsSearch);
 app.use('/cards', cardRoutes);
 app.use('/api/brands', brandApiRoutes);
 app.use('/api/sports', sportApiRoutes);
