@@ -11,17 +11,11 @@ router.get('/', (req, res) => {
   const queryArr = [ favouritesQueries.getFavourites(userID), myCardsQueries.getMyCards(userID) ];
 
   Promise.all(queryArr).then((values) => {
-    for (let card of values[0]) {
-      if (card.user_id != userID) {
-        templateVars['myCards'] = values[1];
-        templateVars['favourites'] = values[0];
-      }
-    }
+    const isUserCard = card => card.user_id === userID;
+    const isUserCards = cardsArray => cardsArray.every(isUserCard);
 
-    if (!templateVars['myCards']) {
-      templateVars['myCards'] = values[0];
-      templateVars['favourites'] = values[1];
-    }
+    templateVars.myCards = isUserCards(values[0]) ? values[0] : values[1];
+    templateVars.favourites = isUserCards(values[0]) ? values[1] : values[0];
 
     res.render('ch_admin', templateVars);
   });
