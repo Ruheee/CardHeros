@@ -10,8 +10,7 @@ router.get('/', (req, res) => {
   const queryArr = [ messagesQueries.getMessages(userID) ];
 
   Promise.all(queryArr).then((values) => {
-    console.log(values)
-
+    templateVars.messages = values;
     res.render('ch_messages', templateVars);
   });
 });
