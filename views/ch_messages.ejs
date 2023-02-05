@@ -15,11 +15,53 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
+  <script defer src="/scripts/messages.js"></script>
 
+  <style>
+    main{
+      display: flex;
+      flex-direction: row;
+    }
+    ul{
+      list-style: none;
+    }
+    li {
+      background: #ccc;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+    .message-frame{
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
 </head>
 
 <body>
     <h1>My Messages</h1>
+    <main>
+      <ul>
+      <% for (let message of messages) { %>
+        <li class="message" id="<%= message.id %>">
+          <% if (message.sender[0].id === userID) { %>
+          <h2><%= message.receiver[0].name %></h2>
+          <p>You</p>
+          <% } else { %>
+          <h2><%= message.sender[0].name %></h2>
+          <p><%= message.sender[0].name %></p>
+          <% } %>
+          <p><%= message.message %></p>
+        </li>
+      <% } %>
+      </ul>
+      <div class="message-bar">
+        <iframe id="message-frame" src=""></iframe>
+        <form>
+          <textarea rows="4" cols="50"></textarea><br><br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </main>
 </body>
 
 </html>
