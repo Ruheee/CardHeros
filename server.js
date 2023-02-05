@@ -9,6 +9,8 @@ const morgan = require('morgan');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
+const hotCardsQuery = require('./db/queries/hot-cards')
+
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -58,7 +60,20 @@ app.use('/messages', messagesRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  res.render('index');
+
+  hotCardsQuery.getHotCards()
+    .then(result => {
+      const templateVars = { result }
+      res.render('index', templateVars);
+      // res.render('search', templateVars)
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+
+
 });
 
 

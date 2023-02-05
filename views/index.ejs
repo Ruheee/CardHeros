@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/header.css"/>
+  <link rel="stylesheet" href="/styles/card.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
@@ -40,9 +41,11 @@
   <section>
     <h2>HOT CARDS</h2>
     <!-- Grid 2 rows  -->
-    <li>
-
-    </li>
+    <div class="cards">
+      <% for (let card of result) { %>
+        <%- include('./partials/_card.ejs', {card: card}) %>
+      <% } %>
+    </div>
   </section>
   <!-- Top Brands Section -->
   <section class="brands">
