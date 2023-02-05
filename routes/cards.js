@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
   //req.body.q = text entered in the form form index search bar
   const userSearch = req.body.q.toLowerCase()
   const sportArr = ['soccer', 'baseball', 'football', 'basketball', 'hockey'];
-  const brandArr = ['topps', 'panini', 'upper deck', 'bowman', 'fleer', 'futera', 'donrus', 'o-pee-chee', 'o pee chee'];
+  const brandArr = ['topps', 'panini', 'upper deck', 'bowman', 'fleer', 'futera', 'donrus', 'o-pee-chee'];
 
   if (sportArr.includes(userSearch)) {
     sportsQuery.getCardBySport(userSearch)
