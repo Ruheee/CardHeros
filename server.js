@@ -32,16 +32,10 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const cardRoutes = require('./routes/cards');
-<<<<<<< HEAD
 const brandApiRoutes = require('./routes/getBrand-api');
 const sportApiRoutes = require('./routes/getSport-api');
 const userLogin = require('./routes/login');
-
-=======
-const brandApiRoutes = require('./routes/getBrand-api')
-const sportApiRoutes = require('./routes/getSport-api')
 const adminRoutes = require('./routes/admin');
->>>>>>> c39321f09664dbaa5e8bc40ebe06a9668afc2b8d
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -52,12 +46,9 @@ app.use('/users', usersRoutes);
 app.use('/cards', cardRoutes);
 app.use('/api/brands', brandApiRoutes);
 app.use('/api/sports', sportApiRoutes);
-<<<<<<< HEAD
 app.use('/login', userLogin);
-=======
 app.use('/admin', adminRoutes);
 
->>>>>>> c39321f09664dbaa5e8bc40ebe06a9668afc2b8d
 // Note: mount other resources here, using the same pattern above
 
 // Home page

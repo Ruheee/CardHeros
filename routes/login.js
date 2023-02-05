@@ -9,9 +9,9 @@ router.get('/', (req, res) => {
   }
 
   res.cookie('user_id', generateRdmUser())
-  const userId = req.cookies['user_id'];
+  // const userId = req.cookies['user_id'];
+  console.log(req.cookies)
   res.render('index');
-  console.log(userId)
 })
 
 // // console.log(generateRdmUser());

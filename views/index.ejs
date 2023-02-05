@@ -12,9 +12,11 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css"/>
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
+
 </head>
 
 <body>
@@ -22,7 +24,7 @@
   <%- include('partials/_header') %>
 
   <!-- Top  -->
-  <section>
+  <section class="top-main">
     <!-- left top division -->
     <div>
       <span>CELEBRATING THE SPORTS</span>
@@ -43,10 +45,12 @@
     </li>
   </section>
   <!-- Top Brands Section -->
-  <section>
+  <section class="brands">
     <li>
       <ul>
-        <div class="brand"></div>
+        <div class="brand">
+          <img src="/images/topps-logo.png" alt="">
+        </div>
       </ul>
       <ul>
         <div class="brand"></div>

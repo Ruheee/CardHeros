@@ -10,4 +10,14 @@ const getBrands = () => {
     });
 };
 
-module.exports = { getBrands };
+const getCardByBrand = brand => {
+  return db
+  .query(`SELECT *
+    FROM cards
+    WHERE brand = $1;`, [brand])
+  .then(data => {
+    return data.rows;
+  })
+}
+
+module.exports = { getBrands, getCardByBrand };
