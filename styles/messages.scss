@@ -1,0 +1,11 @@
+.message-block{
+  display: flex;
+  justify-content: center;
+  flex: 1;
+
+  #sidebar-messages-frame{
+    display: flex;
+    width: 400px;
+    margin-right: 2em;
+  }
+}
