@@ -6,15 +6,16 @@ const cardMessageQueries = require('../db/queries/cardMessages');
 const userQueries = require('../db/queries/user');
 
 router.get('/:id', (req, res) => {
+  const userID = 5;
   const messageID = req.params.id;
   const templateVars = {};
 
   const queryArr = [ messageQueries.getMessage(messageID) ];
 
   Promise.all(queryArr).then((values) => {
-    senderID = values[0][0].sender_id;
-    receiverID = values[0][0].receiver_id;
-    cardID = values[0][0].card_id;
+    const senderID = values[0][0].sender_id;
+    const receiverID = values[0][0].receiver_id;
+    const cardID = values[0][0].card_id;
 
     Promise.all([ cardMessageQueries.getCardMessage(senderID, receiverID, cardID)])
     .then(messageInfo => {
@@ -27,9 +28,9 @@ router.get('/:id', (req, res) => {
         ]).then(([ sender, receiver ]) => {
           return {
               id: message.id,
-              sender_id: 5,
+              sender_id: message.sender_id,
               sender: sender,
-              receiver_id: 1,
+              receiver_id: message.receiver_id,
               receiver: receiver,
               card_id: message.card_id,
               timestamp: message.timestamp,
@@ -41,6 +42,7 @@ router.get('/:id', (req, res) => {
       Promise.all(userQueriesArr)
       .then((result) => {
         templateVars.messages = result;
+        templateVars.userID = userID;
         res.render('ch_message', templateVars);
       });
     })

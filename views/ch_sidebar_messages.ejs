@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/message.css" />
+  <link rel="stylesheet" href="/styles/sidebar-messages.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/sidebar-messages.js"></script>
@@ -23,13 +23,13 @@
     <% for (let message of messages) { %>
       <li class="message" id="<%= message.id %>">
         <% if (message.sender[0].id === userID) { %>
-        <h2><%= message.receiver[0].name %></h2>
-        <p>You</p>
+        <h3><%= message.receiver[0].name %></h3>
+        <p>You: <%= message.message %></p>
         <% } else { %>
-        <h2><%= message.sender[0].name %></h2>
-        <p><%= message.sender[0].name %></p>
+        <h3><%= message.sender[0].name %></h3>
+        <p><%= message.sender[0].name %>: <%= message.message %></p>
         <% } %>
-        <p><%= message.message %></p>
+        <p></p>
       </li>
     <% } %>
     </ul>

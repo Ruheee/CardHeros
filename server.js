@@ -38,6 +38,7 @@ const adminRoutes = require('./routes/admin');
 const sidebarMessagesRoutes = require('./routes/sidebar-messages')
 const messagesRoutes = require('./routes/messages');
 const messageRoutes = require('./routes/message');
+const sendMessageRoutes = require('./routes/send-message');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -52,6 +53,7 @@ app.use('/admin', adminRoutes);
 app.use('/sidebar-messages', sidebarMessagesRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/message', messageRoutes);
+app.use('/message', sendMessageRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page

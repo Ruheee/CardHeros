@@ -27,8 +27,8 @@
         <iframe id="sidebar-messages-frame" frameborder="0" allowfullscreen src="/sidebar-messages"></iframe>
         <div class="message-bar">
           <iframe id="message-frame" frameborder="0" allowfullscreen src="/message/<%= firstMessage %>"></iframe>
-          <form>
-            <textarea rows="4" cols="50"></textarea><br><br>
+          <form id="message-form" action="/message/<%= firstMessage %>" method="POST">
+            <textarea id="message-textarea" name="message"></textarea>
             <input type="submit" value="Submit">
           </form>
         </div>
