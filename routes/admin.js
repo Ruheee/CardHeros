@@ -5,6 +5,7 @@ const favouritesQueries = require('../db/queries/favourites');
 const myCardsQueries = require('../db/queries/my-cards');
 
 router.get('/', (req, res) => {
+  //req.session.user_id will get the id of the currrent session
   const userID = 5;
   const templateVars = { userID: userID };
 
