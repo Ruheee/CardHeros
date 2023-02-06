@@ -2,7 +2,7 @@ const express = require('express');
 const router  = express.Router();
 const sportQueries = require('../db/queries/sports');
 const brandQueries = require('../db/queries/brands');
-const priceQueries = require('../db/queries/price-range');
+
 
 router.get('/', (req, res) => {
   const templateVars = {}

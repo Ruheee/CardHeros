@@ -1,6 +1,6 @@
 const db = require('../connection');
 
-const getCardsByPrice = () => {
+const getCardsFromHighest = () => {
   return db
     .query(`
     SELECT *
@@ -11,4 +11,15 @@ const getCardsByPrice = () => {
       });
 };
 
-module.exports = { getCardsByPrice };
+const getCardsFromLowest = () => {
+  return db
+    .query(`
+    SELECT *
+    FROM cards
+    ORDER BY price;`)
+      .then(data => {
+        return data.rows;
+      });
+};
+
+module.exports = { getCardsFromHighest, getCardsFromLowest };

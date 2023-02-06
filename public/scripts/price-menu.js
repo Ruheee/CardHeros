@@ -1,13 +1,38 @@
 $(document).ready(() => {
   $('#get-price').on('click', () => {
-
-      const $PRICEMENU = $('#price-menu');
-      $PRICEMENU.empty();
-      $(`<li>Highest to lowest</li>`).appendTo($PRICEMENU);
-      $(`<li>Lowest to highest</li>`).appendTo($PRICEMENU);
-
+    $('.price-dropdown').slideToggle()
     });
-  });
 
+
+  $('#highest').on('click', () => {
+    $.ajax({
+      method: 'GET',
+      url: `/api/cards/highestPrice`,
+      success: (response) => {
+        const $ALLCARDS = $('#all-cards');
+        $ALLCARDS.empty();
+
+      for (let card of response.cards) {
+        $(`<div class="card"><div class="card-img" style="background-image: url('${card.card_front_url}');"></div></div>`).appendTo($ALLCARDS);
+      }
+      }
+    })
+  })
+
+  $('#lowest').on('click', () => {
+    $.ajax({
+      method: 'GET',
+      url: `/api/cards/lowestPrice`,
+      success: (response) => {
+        const $ALLCARDS = $('#all-cards');
+        $ALLCARDS.empty();
+
+      for (let card of response.cards) {
+        $(`<div class="card"><div class="card-img" style="background-image: url('${card.card_front_url}');"></div></div>`).appendTo($ALLCARDS);
+      }
+      }
+    })
+  })
+});
 
 
