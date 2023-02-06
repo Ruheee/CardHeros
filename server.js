@@ -8,6 +8,8 @@ const morgan = require('morgan');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
+const cookieSession = require('cookie-session');
+
 
 const hotCardsQuery = require('./db/queries/hot-cards')
 
@@ -27,6 +29,10 @@ app.use(
   })
 );
 app.use(express.static('public'));
+app.use(cookieSession({
+  name: 'session',
+  keys: ['cardHeroes'],
+}));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
