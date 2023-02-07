@@ -77,7 +77,7 @@ app.use('/messages', messagesRoutes);
 app.use('/message', messageRoutes);
 app.use('/message', sendMessageRoutes);
 app.use('/api/cards', getAllCardsRoutes);
-app.use('/cards/:id', cardsIDRoute);
+app.use('/card', cardsIDRoute);// route for /card/:id
 
 
 

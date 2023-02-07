@@ -2,15 +2,15 @@ const db = require('../connection');
 
 
 
-const getCardById = () => {
+const getCardById = (cardId) => {
   return db
   .query(`
   SELECT *
   FROM cards
-  WHERE id = 11
-  `, )
+  WHERE id = $1;
+  `, [cardId])
   .then((result) => {
-    return result.rows;
+    return result.rows[0];
   })
 };
 

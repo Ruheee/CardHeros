@@ -9,29 +9,24 @@
 </head>
 <body>
   <div>
-    <% for (let info of cards) { %>
-    <img src="<%= info.card_front_url %>" alt="photo of card">
+    <% for (let card of cards) { %>
+    <img src="<%= card.card_front_url %>" alt="photo of card">
     <img src="" alt="stage of card">
   </div>
-  <div class="user-card-info">
-    <div id="user-info">
+  <div class="user-card-card">
+    <div id="user-card">
       <img src="" alt="">
       <p>Jimmy Wright</p>
     </div>
-    <div id="card-info">
-      <div id="player-info">
+    <div id="card-card">
+      <div id="player-card">
 
-        <p><%= info.player_name%></p>
-        <p><%= info.title %></p>
+        <p><%= card.player_name%></p>
+        <p><%= card.title %></p>
       </div>
       <div>
-        <p>Sport: <%= info.sport%></p>
-        <p>Team: FC Barcelona</p>
-        <p>League: UEFA Champions League</p>
-        <p>Season: 2021-2022</p>
-        <p>Graded: No</p>
-        <p>Autographed: No</p>
-        <p>Condition: 9/10</p>
+        <p>Sport: <%= card.sport%></p>
+        <p>Description: <%= card.description %></p>
       </div>
       <% } %>
     </div>
