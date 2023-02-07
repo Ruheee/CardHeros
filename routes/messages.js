@@ -4,7 +4,7 @@ const router  = express.Router();
 const messagesQueries = require('../db/queries/messages');
 
 router.get('/', (req, res) => {
-  const userID = 5;
+  const userID = req.session.user_id;
   const templateVars = { userID: userID };
 
   const queryArr = [ messagesQueries.getMessages(userID) ];
