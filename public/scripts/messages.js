@@ -1,4 +1,3 @@
-
 $("#message-form").submit(function(event) {
   event.preventDefault();
   const form = this;

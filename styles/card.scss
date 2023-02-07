@@ -2,12 +2,13 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 
   .card {
     width: 300px;
     height: 420px;
-    margin: 2em;
     transition: all 0.15s ease-in-out;
+    margin-bottom: 1em;
 
     &:hover{
       transform: scale(1.05);
@@ -21,6 +22,36 @@
       background-position: center;
       background-repeat: no-repeat;
       background-size: 120%;
+    }
+  }
+
+  .info{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2em;
+    justify-content: space-between;
+    align-items: center;
+
+    i.edit-icon{
+      color: #A70B0B;
+      transition: all 0.15s ease-in-out;
+
+      &:hover{
+        cursor: pointer;
+        color: #b80e0e;
+        transform: scale(1.2);
+      }
+    }
+
+    i.favourite-icon{
+      color: #F6DE26;
+    }
+
+    .price{
+      margin-left: auto;
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #F6DE26;
     }
   }
 }
