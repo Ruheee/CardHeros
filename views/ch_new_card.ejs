@@ -24,8 +24,8 @@
     <h1>New Card</h1>
     <div class="form-container">
       <side class="images-container">
-        <div class="front-image"></div>
-        <div class="back-image"></div>
+        <div class="image-placeholder front-image"><span>+ Add a front image</span></div>
+        <div class="image-placeholder back-image"><span>+ Add a back image</span></div>
       </side>
       <div class="fields-container">
         <form method="post" src="/cards/new">
@@ -51,7 +51,7 @@
             </select>
           </div>
           <div class="button-container">
-            <input type="text" name="price" placeholder="Price" required />
+            <input type="text" name="price" class="price" placeholder="Price" required />
             <input type="submit" value="Create Card" />
           </div>
         </form>

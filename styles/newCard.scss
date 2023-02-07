@@ -1,4 +1,38 @@
+.form-container{
+  display: flex;
+  flex-direction: row;
+
+  .images-container{
+    display: flex;
+    flex-direction: row;
+    color: #777777;
+    text-align: center;
+    justify-content: center;
+
+    .image-placeholder{
+      background-color: #D9D9D9;
+      border: 1px solid #333;
+      width: 300px;
+      height: 420px;
+      cursor: pointer;
+
+      &.back-image{
+        margin-left: 2em;
+      }
+    }
+  }
+}
+
 .fields-container{
+  display: flex;
+  margin-left: 2em;
+  flex: 1 1 auto;
+  align-items: center;
+
+  form{
+    flex: 1 1 auto;
+    text-align: left;
+  }
 
   .selects-container{
     display: flex;
@@ -16,15 +50,15 @@
     }
   }
 
-  .button-container{background-color: green;
+  .button-container{
     display: flex;
     flex-direction: row;
-  }
-}
 
-form {
-  margin: 2em auto;
-  text-align: left;
+    input[type="text"].price{
+      margin-bottom: 0em;
+      margin-right: 2em;
+    }
+  }
 }
 
 select, input[type="text"] {
