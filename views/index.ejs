@@ -48,50 +48,69 @@
     </div>
   </section>
   <!-- Top Brands Section -->
-  <section class="brands">
-    <li>
-      <ul>
-        <div class="brand">
-          <img src="/images/topps-logo.png" alt="">
-        </div>
-      </ul>
-      <ul>
-        <div class="brand">
-          <img src="/images/Bowman_brand_logo.png" alt="">
-        </div>
-      </ul>
-      <ul>
-        <div class="brand">
-          <img src="/images/Donruss_logo.png" alt="">
-        </div>
-      </ul>
-      <ul>
-        <div class="brand">
-          <img src="/images/Fleer_Logo.svg" alt="">
-        </div>
-      </ul>
-      <ul>
-        <div class="brand">
-          <img src="/images/Futera_logo.png" alt="">
-        </div>
-      </ul>
-      <ul>
-        <div class="brand">
-          <img src="/images/opc-logo.png" alt="">
-        </div>
-      </ul>
-      <ul>
-        <div class="brand">
-          <img src="/images/panini-logo.png" alt="">
-        </div>
-      </ul>
-      <ul>
-        <div class="brand">
-          <img src="/images/upper-deck-logo.png" alt="">
-        </div>
-      </ul>
-    </li>
-  </section>
+  <Section>
+    <h2>Top Brands</h2>
+
+    <section class="brands">
+
+          <div class="brand">
+          <form method="POST" action="/cards">
+            <input name="q" type="hidden" value="topps">
+            <button class="brandBtn" type="submit" name="topps"><img class="brandLogo" src="/images/topps-logo.png" alt="Topps brand"></button>
+          </form>
+          </div>
+
+          <div class="brand">
+          <form method="POST" action="/cards">
+            <input name="q" type="hidden" value="bowman">
+            <button class="brandBtn" type="submit" name="bowman"><img class="brandLogo" src="/images/Bowman_brand_logo.png" alt="Bowman Brand"></button>
+          </form>
+          </div>
+
+          <div class="brand">
+          <form method="POST" action="/cards">
+            <input name="q" type="hidden" value="donruss">
+            <button class="brandBtn" type="submit" name="Donruss"><img class="brandLogo" src="/images/Donruss_logo.png" alt="Donruss Brand"></button>
+          </form>
+          </div>
+
+
+          <div class="brand">
+          <form method="POST" action="/cards">
+            <input name="q" type="hidden" value="Fleer">
+            <button class="brandBtn" type="submit" name="Fleer"><img class="brandLogo" src="/images/Fleer_Logo.svg" alt="Fleer Brand"></button>
+          </form>
+          </div>
+
+          <div class="brand">
+          <form method="POST" action="/cards">
+            <input name="q" type="hidden" value="Futera">
+            <button class="brandBtn" type="submit" name="Futera"><img class="brandLogo" src="/images/Futera_logo.png" alt="Futera Brand"></button>
+          </form>
+          </div>
+
+          <div class="brand">
+          <form method="POST" action="/cards">
+            <input name="q" type="hidden" value="o-pee-chee">
+            <button class="brandBtn" type="submit" name="o-pee-chee"><img class="brandLogo" src="/images/opc-logo.png" alt="o-pee-chee Brand"></button>
+          </form>
+          </div>
+
+          <div class="brand">
+          <form method="POST" action="/cards">
+            <input name="q" type="hidden" value="panini">
+            <button class="brandBtn" type="submit" name="panini"><img class="brandLogo" src="/images/panini-logo.png" alt="panini Brand"></button>
+          </form>
+          </div>
+
+          <div class="brand">
+          <form method="POST" action="/cards">
+            <input name="q" type="hidden" value="upper deck">
+            <button class="brandBtn" type="submit" name="upper-deck"><img class="brandLogo" src="/images/upper-deck-logo.png" alt="upper-deck Brand"></button>
+          </form>
+          </div>
+    </section>
+  </Section>
   <!-- Footer -->
   <%- include('partials/_footer') %>
 </body>

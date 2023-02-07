@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
   const userSearch = req.body.q.toLowerCase()
   //arrays with all the sports and brands available to compare with the search
   const sportArr = ['soccer', 'baseball', 'football', 'basketball', 'hockey'];
-  const brandArr = ['topps', 'panini', 'upper deck', 'bowman', 'fleer', 'futera', 'donrus', 'o-pee-chee'];
+  const brandArr = ['topps', 'panini', 'upper deck', 'bowman', 'fleer', 'futera', 'donruss', 'o-pee-chee'];
   //if the word entered by user is in the sport array
   if (sportArr.includes(userSearch)) {
     sportsQuery.getCardBySport(userSearch)

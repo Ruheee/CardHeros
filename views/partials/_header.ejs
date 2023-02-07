@@ -10,10 +10,20 @@
       <button type="submit">🔍</button>
     </form>
     <% if (userID) { %>
-      <h2> TEST SESSION ID</h2>
+      <form class="" action="/logout" method="GET">
+        <button type="submit" class="btn btn-primary">Logout</button>
+      </form>
+
+      <span><a href="/admin">admin</a></span>
+      <span><a href="/messages">messages</a></span>
+      <img src="https://i.pravatar.cc/55?img=<%= userID %>" alt="">
     <% } %>
+
+    <% if (!userID) { %>
     <form class="" action="/login" method="GET">
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
+    <% } %>
+
   </nav>
 </header>
