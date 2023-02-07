@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title><%= id ? 'Edit Card' : 'New Card' %> | Card Heroes</title>
+
+  <meta charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/newEditCard.css" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/new-card.js"></script>
+  <script defer src="/scripts/deleteCard.js"></script>
+  <script src="https://kit.fontawesome.com/519d339fcd.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <main>
+    <h1><%= id ? 'Edit Card' : 'New Card' %></h1>
+    <div class="form-container">
+      <side class="images-container">
+        <div class="image-placeholder front-image" <%- card_front_url ? 'style="background-image: url(' + card_front_url + ')">' : '><span>+ Add a front image</span>' %></div>
+        <div class="image-placeholder back-image" <%- card_back_url ? 'style="background-image: url(' + card_back_url + ')">' : '><span>+ Add a back image</span>' %></div>
+      </side>
+      <div class="fields-container">
+        <% if (id) { %>
+          <form method="post" action="/cards/<%= id %>/edit">
+        <% } else { %>
+          <form method="post" action="/cards/new">
+        <% } %>
+          <input type="text" name="title" placeholder="Title" value="<%= title ? title : ''%>" required />
+          <input type="text" name="player_name" placeholder="Player Name" value="<%= player_name ? player_name : ''%>" required />
+          <div class="selects-container">
+            <select name="sport" class="sport-select" required>
+              <option value="">Select a Sport</option>
+              <option value="baseball" <%= sport==='baseball' ? 'selected' : '' %>>Baseball</option>
+              <option value="hockey" <%= sport==='hockey' ? 'selected' : '' %>>Hockey</option>
+              <option value="soccer" <%= sport==='soccer' ? 'selected' : '' %>>Soccer</option>
+              <option value="basketball" <%= sport==='basketball' ? 'selected' : '' %>>Basketball</option>
+              <option value="football" <%= sport==='football' ? 'selected' : '' %>>Football</option>
+            </select>
+            <select name="brand" class="brand-select" required>
+              <option value="">Select a Brand</option>
+              <option value="o-pee-chee" <%= brand==='o-pee-chee' ? 'selected' : '' %>>O-Pee-Chee</option>
+              <option value="donruss" <%= brand==='donruss' ? 'selected' : '' %>>Donruss</option>
+              <option value="upper deck" <%= brand==='upper deck' ? 'selected' : '' %>>Upper Deck</option>
+              <option value="topps" <%= brand==='topps' ? 'selected' : '' %>>Topps</option>
+              <option value="panini" <%= brand==='panini' ? 'selected' : '' %>>Panini</option>
+              <option value="futera" <%= brand==='futera' ? 'selected' : '' %>>Futera</option>
+              <option value="bowman" <%= brand==='bowman' ? 'selected' : '' %>>Bowman</option>
+              <option value="fleer" <%= brand==='fleer' ? 'selected' : '' %>>Fleer</option>
+            </select>
+          </div>
+          <input type="text" name="description" placeholder="Description" value="<%= description ? description : ''%>" required />
+          <div class="button-container">
+            <input type="text" name="price" class="price" placeholder="Price" value="<%= price ? price : ''%>" required />
+            <div class="radio-container">
+              <span class="radio-legend">Is it sold?</span>
+              <input type="radio" name="is_sold" id="yes" value="true" <%= is_sold===true ? 'checked' : '' %>>
+              <label for="yes">Yes</label>
+              <input type="radio" name="is_sold" id="no" value="false" <%= is_sold===false ? 'checked' : '' %>>
+              <label for="yes">No</label>
+            </div>
+            <% if (id) { %>
+              <button type="submit" class="delete-card" data-id="<%= id %>"><i class="fa-solid fa-trash-can"></i>Delete Card</button>
+            <% } %>
+            <input type="submit" value="<%= id ? 'Edit Card' : 'Create Card' %>" />
+          </div>
+          <input type="hidden" name="card_front_url" id="card_front_url" <%- card_front_url ? 'value="' + card_front_url + '"' : '' %>>
+          <input type="hidden" name="card_back_url" id="card_back_url" <%- card_back_url ? 'value="' + card_back_url + '"' : '' %>>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>
