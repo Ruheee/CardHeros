@@ -17,7 +17,7 @@ const randomUserId = () => {
   // send the user somewhere
   const userID = req.session.user_id
   const templateVars = { userID }
-  res.render('/', templateVars);
+  res.redirect('/')
 });
 
 module.exports = router;

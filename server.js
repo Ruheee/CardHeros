@@ -43,6 +43,7 @@ const cardRoutes = require('./routes/cards');
 const brandApiRoutes = require('./routes/getBrand-api');
 const sportApiRoutes = require('./routes/getSport-api');
 const userLogin = require('./routes/login');
+const userLogout = require('./routes/logout');
 const getAllCardsRoutes = require('./routes/getAllCards-api');
 const adminRoutes = require('./routes/admin');
 const newCardRoutes = require('./routes/newCard');
@@ -61,6 +62,7 @@ app.use('/cards', cardRoutes);
 app.use('/api/brands', brandApiRoutes);
 app.use('/api/sports', sportApiRoutes);
 app.use('/login', userLogin);
+app.use('/logout', userLogout)
 app.use('/admin', adminRoutes);
 app.use('/cards/new', newCardRoutes);
 app.use('/sidebar-messages', sidebarMessagesRoutes);
