@@ -21,19 +21,19 @@
 </head>
 
 <body>
-    <main>
-      <h1>My Messages</h1>
-      <section class="message-block">
-        <iframe id="sidebar-messages-frame" frameborder="0" allowfullscreen src="/sidebar-messages"></iframe>
-        <div class="message-bar">
-          <iframe id="message-frame" frameborder="0" allowfullscreen src="/message/<%= firstMessage %>"></iframe>
-          <form id="message-form" action="/message/<%= firstMessage %>" method="POST">
-            <textarea id="message-textarea" name="message"></textarea>
-            <input type="submit" value="Submit">
-          </form>
-        </div>
-      </section>
-    </main>
+  <main>
+    <h1>My Messages</h1>
+    <section class="message-block">
+      <iframe id="sidebar-messages-frame" frameborder="0" allowfullscreen src="/sidebar-messages"></iframe>
+      <div class="message-bar">
+        <iframe id="message-frame" frameborder="0" allowfullscreen src="/message/<%= firstMessage %>"></iframe>
+        <form id="message-form" action="/message/<%= firstMessage %>" method="POST">
+          <textarea id="message-textarea" name="message"></textarea>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+    </section>
+  </main>
 </body>
 
 </html>

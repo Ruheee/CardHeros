@@ -6,9 +6,9 @@ const cardMessageQueries = require('../db/queries/cardMessages');
 const userQueries = require('../db/queries/user');
 
 router.get('/:id', (req, res) => {
-  const userID = 5;
+  const userID = req.session.user_id;
   const messageID = req.params.id;
-  const templateVars = {};
+  const templateVars = { userID: +userID };
 
   const queryArr = [ messageQueries.getMessage(messageID) ];
 
@@ -42,7 +42,6 @@ router.get('/:id', (req, res) => {
       Promise.all(userQueriesArr)
       .then((result) => {
         templateVars.messages = result;
-        templateVars.userID = userID;
         res.render('ch_message', templateVars);
       });
     })
