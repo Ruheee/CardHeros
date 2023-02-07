@@ -159,6 +159,16 @@ input[type="submit"] {
     }
   }
 
+  &.delete{
+    flex-direction: column;
+    align-items: center;
+
+    h2{
+      color: white;
+      margin-bottom: 1em;
+    }
+  }
+
   button{
     border-radius: 2em;
     font-weight: bold;

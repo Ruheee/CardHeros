@@ -17,6 +17,7 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/new-card.js"></script>
+  <script defer src="/scripts/deleteCard.js"></script>
   <script src="https://kit.fontawesome.com/519d339fcd.js" crossorigin="anonymous"></script>
 
 </head>
@@ -69,7 +70,7 @@
               <label for="yes">No</label>
             </div>
             <% if (id) { %>
-              <button class="delete-card"><i class="fa-solid fa-trash-can"></i>Delete Card</button>
+              <button type="submit" class="delete-card" data-id="<%= id %>"><i class="fa-solid fa-trash-can"></i>Delete Card</button>
             <% } %>
             <input type="submit" value="<%= id ? 'Edit Card' : 'Create Card' %>" />
           </div>

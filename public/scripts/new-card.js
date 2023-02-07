@@ -17,7 +17,7 @@ $('.image-placeholder').click(function () {
   imagePlaceholder.removeClass('error-input');
 
   // Add a black div and pop-up div for use to input URL
-  let blockDiv = $('<div class="block-div hidden"></div>');
+  let blockDiv = $('<div class="block-div"></div>');
   let popUp = $(`
   <div class="pop-up">\
     <input type="text" class="${cardSide}" name="${cardSide}" placeholder="Paste the ${messageSide} image URL here" required />\
@@ -40,7 +40,7 @@ $('.image-placeholder').click(function () {
     popUp.remove();
   });
 
-  // if the user submits the form, check if it has an URL
+  // if the user submit the form, check if it has an URL
   // if not, add error class
   // Otherwise, get the URL and add as a background image to placeholder and add to hidden field in the form
   popUp.find('.submit-url').click(() => {
