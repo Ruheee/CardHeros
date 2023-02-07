@@ -9,7 +9,6 @@ const getSports = () => {
     });
 };
 
-<<<<<<< HEAD
 const getCardBySport = sport => {
   return db
     .query(`SELECT * FROM cards WHERE sport = $1;`, [sport])
@@ -19,7 +18,6 @@ const getCardBySport = sport => {
 };
 
 module.exports = { getSports, getCardBySport };
-=======
 const getSoccer = () => {
   return db
   .query(`SELECT *
@@ -72,4 +70,3 @@ const getBaseball = () => {
 
 
 module.exports = { getSports, getSoccer, getBasketball, getHockey, getFootball, getBaseball  };
->>>>>>> cards_view
