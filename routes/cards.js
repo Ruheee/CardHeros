@@ -20,7 +20,9 @@ router.post('/', (req, res) => {
   if (sportArr.includes(userSearch)) {
     sportsQuery.getCardBySport(userSearch)
     .then(result => {
-      const templateVars = { result }
+      const userID = req.session.user_id;
+      const templateVars = { userID, result }
+      console.log(templateVars)
       res.render('search', templateVars)
     })
     .catch(err => {
@@ -33,7 +35,8 @@ router.post('/', (req, res) => {
   if (brandArr.includes(userSearch)) {
     brandQuery.getCardByBrand(userSearch)
     .then(result => {
-      const templateVars = { result }
+      const userID = req.session.user_id;
+      const templateVars = { userID, result }
       res.render('search', templateVars)
     })
     .catch(err => {

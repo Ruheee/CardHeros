@@ -76,9 +76,9 @@ app.get('/', (req, res) => {
 
   hotCardsQuery.getHotCards()
     .then(result => {
-      const templateVars = { result }
+      const userID = req.session.user_id
+      const templateVars = { userID, result }
       res.render('index', templateVars);
-      // res.render('search', templateVars)
     })
     .catch(err => {
       res

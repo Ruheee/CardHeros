@@ -8,7 +8,6 @@ const getHotCards = () => {
     let num = Math.floor(Math.random() * (51 - 1) + 1)
     randomIdArr.push(num)
   }
-  console.log(randomIdArr)
   return db
     .query(`SELECT * FROM cards
       WHERE id=$1 OR id=$2 OR id=$3 OR id=$4 OR id=$5;`, randomIdArr)

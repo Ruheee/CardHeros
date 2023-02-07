@@ -9,7 +9,9 @@
        aria-label="Search through site content">
       <button type="submit">🔍</button>
     </form>
-
+    <% if (userID) { %>
+      <h2> TEST SESSION ID</h2>
+    <% } %>
     <form class="" action="/login" method="GET">
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
