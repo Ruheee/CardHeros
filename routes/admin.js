@@ -12,8 +12,6 @@ router.get('/', (req, res) => {
 
   Promise.all(queryArr).then((values) => {
 
-    console.log(values[0])
-
     const isUserCard = card => card.user_id === userID;
     const isUserCards = cardsArray => cardsArray.every(isUserCard);
 

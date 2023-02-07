@@ -52,10 +52,7 @@ $('.image-placeholder').click(function () {
       $(`#${cardSide}`).val(imageURL);
 
       imagePlaceholder.css({
-        'background-image': `url('${imageURL}')`,
-        'background-position': 'center',
-        'background-repeat': 'no-repeat',
-        'background-size': '120%'
+        'background-image': `url('${imageURL}')`
       })
 
       imagePlaceholder.html('');
