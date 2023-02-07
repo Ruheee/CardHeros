@@ -1,11 +1,14 @@
 const express = require('express');
 const router  = express.Router();
-const sportQueries = require('../db/queries/sports');
+const getAllCardsQueries = require('../db/queries/getAllCards');
+const priceMenuQuery = require('../db/queries/price-range');
+const sportQueries = require('../db/queries/sports')
 
-//Filter by sports
-router.get('/soccer', (req,res) => {
 
-  sportQueries.getSoccer()
+// Load the next 10 cards in the array
+router.get('/', (req,res) => {
+  const PAGENUMBER = req.query.pageNumber
+  getAllCardsQueries.getAllCards(PAGENUMBER)
   .then(cards => {
     res.json({ cards });
   })
@@ -16,8 +19,21 @@ router.get('/soccer', (req,res) => {
   });
 })
 
-router.get('/basketball', (req,res) => {
-  sportQueries.getBasketball()
+
+// Filter cards by price
+router.get('/highestPrice', (req,res) => {
+  priceMenuQuery.getCardsFromHighest()
+  .then(cards => {
+    res.json({ cards });
+  })
+  .catch(err => {
+    res
+      .status(500)
+      .json({ error: err.message });
+  });
+})
+router.get('/lowestPrice', (req,res) => {
+  priceMenuQuery.getCardsFromLowest()
   .then(cards => {
     res.json({ cards });
   })
@@ -39,30 +55,4 @@ router.get('/baseball', (req,res) => {
       .json({ error: err.message });
   });
 })
-
-router.get('/hockey', (req,res) => {
-  sportQueries.getHockey()
-  .then(cards => {
-    res.json({ cards });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
-})
-
-router.get('/football', (req,res) => {
-  sportQueries.getFootball()
-  .then(cards => {
-    res.json({ cards });
-  })
-  .catch(err => {
-    res
-      .status(500)
-      .json({ error: err.message });
-  });
-})
-
-
 module.exports = router;

@@ -1,15 +1,25 @@
 const db = require('../connection');
 
-const getCardsByPrice = (priceRange) => {
+const getCardsFromHighest = () => {
   return db
     .query(`
     SELECT *
     FROM cards
-    WHERE price >= $1
-    AND price <= $1;`, [priceRange])
+    ORDER BY price DESC;`)
       .then(data => {
         return data.rows;
       });
 };
 
-module.exports = { getCardsByPrice };
+const getCardsFromLowest = () => {
+  return db
+    .query(`
+    SELECT *
+    FROM cards
+    ORDER BY price;`)
+      .then(data => {
+        return data.rows;
+      });
+};
+
+module.exports = { getCardsFromHighest, getCardsFromLowest };

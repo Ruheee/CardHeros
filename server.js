@@ -43,6 +43,7 @@ const cardRoutes = require('./routes/cards');
 const brandApiRoutes = require('./routes/getBrand-api');
 const sportApiRoutes = require('./routes/getSport-api');
 const userLogin = require('./routes/login');
+const getAllCardsRoutes = require('./routes/getAllCards-api');
 const adminRoutes = require('./routes/admin');
 const newCardRoutes = require('./routes/newCard');
 const sidebarMessagesRoutes = require('./routes/sidebar-messages')
@@ -66,6 +67,10 @@ app.use('/sidebar-messages', sidebarMessagesRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/message', messageRoutes);
 app.use('/message', sendMessageRoutes);
+app.use('/api/cards', getAllCardsRoutes);
+
+
+
 // Note: mount other resources here, using the same pattern above
 
 // Home page
