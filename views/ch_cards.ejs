@@ -12,41 +12,47 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="/scripts/brand_menu.js"></script>
   <script src="/scripts/sports_menu.js"></script>
-  <script src="/scripts/allCards.js"></script>
+  <script src="/scripts/getCards.js"></script>
   <script src="/scripts/price-menu.js"></script>
 
-  <link rel="stylesheet" href="/styles/dropdown.css"/>
+
   <link rel="stylesheet" href="/styles/card.css">
+  <link rel="stylesheet" href="/styles/cards_view.css">
+  <link rel="stylesheet" href="/styles/dropdown.css"/>
 </head>
 <body>
 <nav>
 
-  <div>
+  <div class="dropdown">
     <button id="get-sports">Sports</button>
-    <ul>
-      <% for (let sports of sport) { %>
-        <li class="sport-dropdown hide-list"><%= sports.sport %></li>
-      <% } %>
-    </ul>
+      <ul class="dropdown-menu">
+        <% for (let sports of sport) { %>
+          <li class="sport-dropdown hide-list" id="<%= sports.sport %>"><%= sports.sport %></li>
+        <% } %>
+      </ul>
   </div>
 
-  <div>
+  <div class="dropdown">
     <button id="get-brands">Brands</button>
-    <ul>
-      <% for (let brands of brand) { %>
-        <li class="dropdown hide-list"><%= brands.brand %></li>
-      <% } %>
-    </ul>
+      <ul class="dropdown-menu">
+        <% for (let brands of brand) { %>
+          <li class="brand-dropdown hide-list" id="<%= brands.brand %>"><%= brands.brand %></li>
+        <% } %>
+      </ul>
   </div>
 
-  <div>
+  <div class="dropdown">
     <button id="get-price">Price</button>
-    <ul id="price-menu" class="hidden"></ul>
+      <ul class="dropdown-menu">
+        <li id="highest" class="price-dropdown hide-list">Highest to lowest</li>
+        <li id="lowest" class="price-dropdown hide-list">Lowest to highest</li>
+      </ul>
   </div>
 
 </nav>
-  <div class="cards" id="cards"></div>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Soccerball.svg" alt="soccer-ball-loading">
-
+<div class="cards" id="all-cards"></div>
+<div id="soccer-ball">
+  <button id="load-more">More Cards<img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Soccerball.svg" alt="soccer-ball-loading"></button>
+</div>
 </body>
 </html>

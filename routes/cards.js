@@ -4,6 +4,7 @@ const sportQueries = require('../db/queries/sports');
 const brandQueries = require('../db/queries/brands');
 
 
+// Renders EJS View and passes Sports and Brands info to EJS
 router.get('/', (req, res) => {
   const templateVars = {}
   const queryArr = [sportQueries.getSports(), brandQueries.getBrands()];
@@ -14,7 +15,6 @@ router.get('/', (req, res) => {
     res.render('ch_cards', templateVars)
   });
 });
-
 
 
 

@@ -1,5 +1,6 @@
 $(document).ready(() => {
   $('#get-brands').on('click', () => {
-    $('.dropdown').slideToggle()
+    $('.brand-dropdown').slideToggle()
   });
+
 })
