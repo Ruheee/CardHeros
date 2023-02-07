@@ -13,8 +13,10 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/newCard.css" />
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/new-card.js"></script>
   <script src="https://kit.fontawesome.com/519d339fcd.js" crossorigin="anonymous"></script>
 
 </head>
@@ -32,14 +34,16 @@
           <input type="text" name="title" placeholder="Title" required />
           <input type="text" name="player_name" placeholder="Player Name" required />
           <div class="selects-container">
-            <select name="sport" class="sport-select">
+            <select name="sport" class="sport-select" required>
+              <option value="">Select a Sport</option>
               <option value="baseball">Baseball</option>
               <option value="hockey">Hockey</option>
               <option value="soccer">Soccer</option>
               <option value="basketball">Basketball</option>
               <option value="football">Football</option>
             </select>
-            <select name="brand" class="brand-select">
+            <select name="brand" class="brand-select" required>
+              <option value="">Select a Brand</option>
               <option value="o-pee-chee">O-Pee-Chee</option>
               <option value="donruss">Donruss</option>
               <option value="upper deck">Upper Deck</option>
@@ -50,14 +54,23 @@
               <option value="fleer">Fleer</option>
             </select>
           </div>
+          <input type="text" name="description" placeholder="Description" required />
           <div class="button-container">
             <input type="text" name="price" class="price" placeholder="Price" required />
+            <div class="radio-container">
+              <span class="radio-legend">Is it sold?</span>
+              <input type="radio" name="is_sold" id="yes" value="true">
+              <label for="yes">Yes</label>
+              <input type="radio" name="is_sold" id="no" value="false" checked>
+              <label for="yes">No</label>
+            </div>
             <input type="submit" value="Create Card" />
           </div>
+          <input type="hidden" name="card_front_url" id="card_front_url">
+          <input type="hidden" name="card_back_url" id="card_back_url">
         </form>
       </div>
     </div>
-
   </main>
 </body>
 
