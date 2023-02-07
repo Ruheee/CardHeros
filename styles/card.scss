@@ -33,11 +33,13 @@
     align-items: center;
 
     i.edit-icon{
-      color: white;
+      color: #A70B0B;
+      transition: all 0.15s ease-in-out;
 
       &:hover{
         cursor: pointer;
-        color: #A70B0B;
+        color: #b80e0e;
+        transform: scale(1.2);
       }
     }
 

@@ -1,0 +1,20 @@
+.header-container {
+  display: flex;
+  align-items: center;
+}
+
+.add-card-link {
+  text-decoration: none;
+  background-color: #A70B0B;
+  border-radius: 2em;
+  margin-left: 2em;
+  font-weight: bold;
+  color: white;
+  padding: 0.8em;
+  width: auto;
+  cursor: pointer;
+
+  &:hover{
+    background-color: #b80e0e;
+  }
+}

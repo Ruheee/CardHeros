@@ -12,10 +12,10 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/admin.css" />
   <link rel="stylesheet" href="/styles/card.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/favourites.js"></script>
   <script src="https://kit.fontawesome.com/519d339fcd.js" crossorigin="anonymous"></script>
 
 </head>
@@ -34,7 +34,10 @@
       </div>
     <% } %>
     </div>
-    <h1>My Cards</h1>
+    <div class="header-container">
+      <h1>My Cards</h1>
+      <a class="add-card-link" href="/cards/new">+ New Card</a>
+    </div>
     <div class="cards">
     <% for (let card of myCards) { %>
       <div class="card-container">
