@@ -48,6 +48,7 @@ const adminRoutes = require('./routes/admin');
 const newCardRoutes = require('./routes/newCard');
 const addNewCardRoutes = require('./routes/addNewCard');
 const editCardRoutes = require('./routes/editCard');
+const deleteCardRoutes = require('./routes/deleteCard');
 const updateCardRoutes = require('./routes/updateCard');
 const sidebarMessagesRoutes = require('./routes/sidebar-messages')
 const messagesRoutes = require('./routes/messages');
@@ -68,6 +69,7 @@ app.use('/admin', adminRoutes);
 app.use('/cards/new', newCardRoutes);
 app.use('/cards/new', addNewCardRoutes);
 app.use('/cards', editCardRoutes);
+app.use('/cards', deleteCardRoutes);
 app.use('/cards', updateCardRoutes);
 app.use('/sidebar-messages', sidebarMessagesRoutes);
 app.use('/messages', messagesRoutes);
