@@ -43,7 +43,7 @@
       <div class="card-container">
         <%- include('./partials/_card.ejs', {card: card}) %>
         <div class="info">
-          <i class="fa-solid fa-pen edit-icon" title="Edit card"></i>
+          <a href="/cards/<%= card.id %>/edit"><i class="fa-solid fa-pen edit-icon" title="Edit card"></i></a>
           <span class="price">$ <%= card.price %></span>
         </div>
       </div>

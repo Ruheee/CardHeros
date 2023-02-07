@@ -10,6 +10,9 @@
     .image-placeholder{
       position: relative;
       background-color: #D9D9D9;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 120%;
       border: 1px solid #333;
       width: 300px;
       height: 420px;
@@ -81,6 +84,26 @@
 
       input[type="radio"] {
         margin-left: 1em;
+      }
+    }
+
+    .delete-card{
+      background-color: #999999;
+      border-radius: 2em;
+      font-weight: bold;
+      color: #333;
+      padding: 0.8em;
+      width: 250px;
+      cursor: pointer;
+      margin-left: 1em;
+
+      &:hover{
+        background-color: #aaaaaa;
+      }
+
+      .fa-trash-can{
+        color: #A70B0B;
+        margin-right: 0.5em;
       }
     }
   }

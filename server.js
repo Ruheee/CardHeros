@@ -47,6 +47,8 @@ const getAllCardsRoutes = require('./routes/getAllCards-api');
 const adminRoutes = require('./routes/admin');
 const newCardRoutes = require('./routes/newCard');
 const addNewCardRoutes = require('./routes/addNewCard');
+const editCardRoutes = require('./routes/editCard');
+const updateCardRoutes = require('./routes/updateCard');
 const sidebarMessagesRoutes = require('./routes/sidebar-messages')
 const messagesRoutes = require('./routes/messages');
 const messageRoutes = require('./routes/message');
@@ -65,6 +67,8 @@ app.use('/login', userLogin);
 app.use('/admin', adminRoutes);
 app.use('/cards/new', newCardRoutes);
 app.use('/cards/new', addNewCardRoutes);
+app.use('/cards', editCardRoutes);
+app.use('/cards', updateCardRoutes);
 app.use('/sidebar-messages', sidebarMessagesRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/message', messageRoutes);

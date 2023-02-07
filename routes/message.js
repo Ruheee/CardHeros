@@ -1,4 +1,3 @@
-const { query } = require('express');
 const express = require('express');
 const router  = express.Router();
 const messageQueries = require('../db/queries/message');
