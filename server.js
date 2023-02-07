@@ -44,7 +44,11 @@ const brandApiRoutes = require('./routes/getBrand-api');
 const sportApiRoutes = require('./routes/getSport-api');
 const userLogin = require('./routes/login');
 const adminRoutes = require('./routes/admin');
+const newCardRoutes = require('./routes/newCard');
+const sidebarMessagesRoutes = require('./routes/sidebar-messages')
 const messagesRoutes = require('./routes/messages');
+const messageRoutes = require('./routes/message');
+const sendMessageRoutes = require('./routes/send-message');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -57,8 +61,11 @@ app.use('/api/brands', brandApiRoutes);
 app.use('/api/sports', sportApiRoutes);
 app.use('/login', userLogin);
 app.use('/admin', adminRoutes);
+app.use('/cards/new', newCardRoutes);
+app.use('/sidebar-messages', sidebarMessagesRoutes);
 app.use('/messages', messagesRoutes);
-
+app.use('/message', messageRoutes);
+app.use('/message', sendMessageRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page

@@ -1,0 +1,61 @@
+body::-webkit-scrollbar {
+  width: 0.2em;
+  background-color: #333;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #5F5F5F;
+}
+
+body{
+  display: flex;
+  align-items: flex-start;
+}
+
+.message-frame{
+  display: flex;
+  flex-direction: column;
+  width: 99%;
+  flex: 1 1 auto;
+
+  p, span {
+    color: #d9d9d9;
+  }
+
+  .message-line{
+    display: flex;
+    flex-direction: column;
+
+    span{
+      font-weight: bold;
+      font-size: 0.9em;
+      margin-bottom: 1em;
+    }
+
+    &.right{
+      text-align: right;
+      align-self: flex-end;
+    }
+
+    &.left{
+      text-align: left;
+      align-self: flex-start;
+    }
+  }
+
+  .message-box {
+    display: inline-block;
+    background-color: #3F3F3F;
+    border-top: 1px solid #5F5F5F;
+    filter: drop-shadow(5px 5px 5px #292929);
+    margin-bottom: 1em;
+    border-radius: 1em;
+    padding: 2em;
+    color: white;
+
+    &.user{
+      background-color: #5F5F5F;
+    }
+  }
+
+}

@@ -32,5 +32,27 @@
         }
       }
 
-  }
+  }}
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background: #333;
+}
+
+main{
+  width: 1440px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
 }
