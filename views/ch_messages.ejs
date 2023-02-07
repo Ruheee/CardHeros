@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title><%= userID %> | Card Heroes</title>
+  <title>Messages | Card Heroes</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -12,14 +12,28 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/messages.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
+  <script defer src="/scripts/messages.js"></script>
 
 </head>
 
 <body>
-    <h1>My Messages</h1>
+    <main>
+      <h1>My Messages</h1>
+      <section class="message-block">
+        <iframe id="sidebar-messages-frame" frameborder="0" allowfullscreen src="/sidebar-messages"></iframe>
+        <div class="message-bar">
+          <iframe id="message-frame" frameborder="0" allowfullscreen src="/message/<%= firstMessage %>"></iframe>
+          <form id="message-form" action="/message/<%= firstMessage %>" method="POST">
+            <textarea id="message-textarea" name="message"></textarea>
+            <input type="submit" value="Submit">
+          </form>
+        </div>
+      </section>
+    </main>
 </body>
 
 </html>
