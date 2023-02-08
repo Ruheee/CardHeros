@@ -1,15 +1,30 @@
 $baseColor: #333;
+$buttonColor: #a70b0b;
+$squaresColor: rgb(66, 64, 64);
+$shadowColor: rgb(35, 33, 33);
+
+// style="position:absolute; top:0px; left:0px; height:200px; right:0px;overflow:hidden;"
+
+header {
+  width: 100%;
+  background-color: $baseColor;
+  position: fixed;
+  top: 0px;
+}
 
 nav {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  background-color: $baseColor;
+  justify-content: space-evenly;
+  background-color: $squaresColor;
   padding: .4rem;
+  width: 1440px;
+  margin: auto;
+  box-shadow: 0px 3px 2px $shadowColor;
 
   .search {
     background-color: rgb(73, 72, 72);
-    width: 300px;
+    width: 400px;
     height: 44px;
     border-radius: 5px;
     display: flex;
@@ -38,15 +53,52 @@ nav {
       border-radius: 0.5rem;
     }
   }
+}
 
+.login-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 300px;
 
+  .avatar {
+    border-radius: 50%;
+  }
 
+  a {
+    background-color: none;
+    color: none;
+  }
+
+  .fa-solid {
+    background-color: #666666;
+    color: #666666;
+  }
+
+}
+
+.btn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  -webkit-box-shadow: 0px 1px 3px #666666;
+  -moz-box-shadow: 0px 1px 3px #666666;
+  box-shadow: 0px 1px 3px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 15px;
+  background: $buttonColor;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #701515;
+  text-decoration: none;
 }
 
 .logo {
   height: 3rem;
 }
 
-footer {
-  background-color: $baseColor;
-}
