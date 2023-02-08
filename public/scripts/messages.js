@@ -23,7 +23,7 @@ function updateMessageFrame(messageID) {
   let messageFrame = document.getElementById('message-frame');
   messageFrame.src = '/message/' + messageID;
 
-  let form = document.querySelector('form');
+  let form = document.querySelector('#message-form');
   form.action = '/message/' + messageID;
 }
 

@@ -21,7 +21,7 @@
 <body>
   <ul class="message-list">
     <% for (let message of messages) { %>
-      <li class="message" id="<%= message.id %>">
+      <li class="message" id="<%= message.card_id %>">
         <% if (message.sender[0].id === userID) { %>
         <h3><%= message.receiver[0].name %></h3>
         <p>You: <%= message.message %></p>
@@ -30,8 +30,9 @@
         <p><%= message.sender[0].name %>: <%= message.message %></p>
         <% } %>
       </li>
+      <div class="template-vars <%= message.id %>" style="display: none;" data-user-name="<%= message.sender[0].id === userID ? message.receiver[0] : message.sender[0] %>"></div>
     <% } %>
+    <div id="new-user" style="display: none;" data-user-name="<%= user[0].name %>"></div>
   </ul>
-  <div id="template-vars" style="display: none;" data-user-name="<%= user[0].name %>"></div>
  </body>
  </html>

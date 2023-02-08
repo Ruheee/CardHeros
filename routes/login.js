@@ -11,8 +11,6 @@ const randomUserId = () => {
 }
   //assign session to a random user
   req.session.user_id = randomUserId()
-  //console log session user
-  console.log(req.session.user_id)
 
   // send the user somewhere
   const userID = req.session.user_id

@@ -15,6 +15,8 @@ router.get('/:id', (req, res) => {
       receiver_id: values[0][0].user_id
     }
 
+    console.log(templateVars)
+
     res.render('ch_messages', templateVars);
   });
 });

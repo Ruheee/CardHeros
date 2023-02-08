@@ -2,7 +2,7 @@ $(() => {
   const url = window.location.pathname;
   const cardID = url.substring(url.lastIndexOf('/') + 1);
   const messages = document.querySelectorAll('.message');
-  const userName = $('#template-vars').data('user-name');
+  let userName;
 
   if (cardID === 'sidebar-messages') {
     messages[0].classList.add('active');
@@ -18,7 +18,12 @@ $(() => {
 
   } else {
     messages.forEach(message => {
-      if (message.id === cardID) message.classList.add('new-message');
+      console.log(message.id, cardID)
+      if (message.id === cardID) {
+        message.classList.add('new-message');
+        userName = $(`.template-vars ${message.id}`).data('user-name');
+        $('.message-list').prepend(message);
+      }
 
       message.addEventListener('click', () => {
         window.parent.location.href = '/messages'
@@ -26,6 +31,8 @@ $(() => {
     })
 
     if(!$('li.new-message').length) {
+      userName = $('#new-user').data('user-name');
+
       $('.message-list').prepend(`
         <li class='message new-message'>
           <h3>${userName}</h3>
