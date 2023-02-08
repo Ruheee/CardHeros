@@ -8,4 +8,15 @@ const addCardToFav = (userID,cardID) => {
       return data.rows;
     });
 };
-module.exports = { addCardToFav };
+
+const checkFavourite = (userID, cardID) => {
+  return db
+  .query(`SELECT user_id
+  FROM user_favourites
+  where user_id = $1
+  AND card_id = $2`, [userID, cardID])
+    .then(data => {
+      return data.rows[0];
+    });
+};
+module.exports = { addCardToFav, checkFavourite };

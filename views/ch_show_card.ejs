@@ -4,17 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <% for (let card of cards) {console.log(card.id) %>
-  <title><%= card.title%></title>
-  <link rel="stylesheet" href="/styles/card:id.css">
+
+  <title><%= cards.title%></title>
+
+  <link rel="stylesheet" href="/styles/herocard.css">
 </head>
 <body>
-  <div>
+  <div class="cards">
 
-    <img src="<%= card.card_front_url %>" alt="photo of card">
-    <img src="<%= card.card_back_url %>" alt="photo of card">
-    <img src="" alt="stage of card">
+    <img class="card" src="<%= cards.card_front_url %>" alt="photo of card">
+    <img class="card"src="<%= cards.card_back_url %>" alt="photo of card">
+
   </div>
+  <img src="" alt="stage of card">
   <div class="user-card-card">
     <div id="user-card">
       <img src="" alt="">
@@ -23,25 +25,31 @@
     <div id="card-card">
       <div id="player-card">
 
-        <p><%= card.player_name%></p>
-        <p><%= card.title %></p>
+        <p><%= cards.player_name%></p>
+        <p><%= cards.title %></p>
       </div>
       <div>
-        <p>Sport: <%= card.sport%></p>
-        <p>Description: <%= card.description %></p>
+        <p>Sport: <%= cards.sport%></p>
+        <p>Description: <%= cards.description %></p>
       </div>
 
     </div>
     <div id="price-info">
-      <h1>$10.05</h1>
+      <span>$<%= cards.price %></span>
       <div id="favourites">
         <form action="">
           <button>Contact Seller</button>
         </form>
-        <form action="/herocard/<%= card.id%>" method="POST">
-          <button> Add to favourites </button>
-      </form>
-      <% } %>
+        <% if (favourites) { %>
+          <form action="/herocard/remove/<%= cards.id%>" method="POST">
+            <button> Remove </button>
+        </form>
+        <% } %>
+        <% if (!favourites) { %>
+          <form action="/herocard/<%= cards.id%>" method="POST">
+            <button> Add to favourites </button>
+          </form>
+        <% } %>
       </div>
     </div>
   </div>

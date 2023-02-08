@@ -14,4 +14,13 @@ const getFavourites = ( userID ) => {
     });
 };
 
-module.exports = { getFavourites };
+const removeFromFavourites = (userID, cardID) => {
+  return db
+  .query(`
+  DELETE
+  FROM user_favourites
+  WHERE user_id = $1
+  AND card_id = $2;
+  `, [userID, cardID])
+}
+module.exports = { getFavourites, removeFromFavourites };
