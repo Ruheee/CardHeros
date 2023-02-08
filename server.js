@@ -55,6 +55,7 @@ const messagesRoutes = require('./routes/messages');
 const messageRoutes = require('./routes/message');
 const sendMessageRoutes = require('./routes/send-message');
 const cardsIDRoute = require('./routes/cards_id');
+const addCardToFav = require('./routes/addFavCard')
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -77,7 +78,8 @@ app.use('/messages', messagesRoutes);
 app.use('/message', messageRoutes);
 app.use('/message', sendMessageRoutes);
 app.use('/api/cards', getAllCardsRoutes);
-app.use('/card', cardsIDRoute);// route for /card/:id
+app.use('/herocard', cardsIDRoute);// route for /card/:id
+app.use('/herocard', addCardToFav);
 
 
 

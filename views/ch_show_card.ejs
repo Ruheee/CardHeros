@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Card/:id</title>
+  <% for (let card of cards) {console.log(card.id) %>
+  <title><%= card.title%></title>
   <link rel="stylesheet" href="/styles/card:id.css">
 </head>
 <body>
   <div>
-    <% for (let card of cards) { %>
+
     <img src="<%= card.card_front_url %>" alt="photo of card">
+    <img src="<%= card.card_back_url %>" alt="photo of card">
     <img src="" alt="stage of card">
   </div>
   <div class="user-card-card">
@@ -28,7 +30,7 @@
         <p>Sport: <%= card.sport%></p>
         <p>Description: <%= card.description %></p>
       </div>
-      <% } %>
+
     </div>
     <div id="price-info">
       <h1>$10.05</h1>
@@ -36,9 +38,10 @@
         <form action="">
           <button>Contact Seller</button>
         </form>
-        <form action="">
+        <form action="/herocard/<%= card.id%>" method="POST">
           <button> Add to favourites </button>
       </form>
+      <% } %>
       </div>
     </div>
   </div>
