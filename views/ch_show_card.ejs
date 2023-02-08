@@ -8,8 +8,13 @@
   <title><%= cards.title%></title>
 
   <link rel="stylesheet" href="/styles/herocard.css">
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/footer.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+  <%- include('partials/_header') %>
   <div class="cards">
 
     <img class="card" src="<%= cards.card_front_url %>" alt="photo of card">
@@ -37,16 +42,14 @@
     <div id="price-info">
       <span>$<%= cards.price %></span>
       <div id="favourites">
-        <form action="">
-          <button>Contact Seller</button>
-        </form>
+          <a href="/messages/43">Contact Seller</a>
         <% if (favourites) { %>
           <form action="/herocard/remove/<%= cards.id%>" method="POST">
-            <button> Remove </button>
+            <button> Remove </button></a>
         </form>
         <% } %>
         <% if (!favourites) { %>
-          <form action="/herocard/<%= cards.id%>" method="POST">
+          <form action="/herocard/<%= cards.id %>" method="POST">
             <button> Add to favourites </button>
           </form>
         <% } %>

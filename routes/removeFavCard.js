@@ -8,8 +8,8 @@ router.post('/:id', (req, res) => {
   const userID = req.session.user_id;
   const cardID = req.params.id
   deleteFav.removeFromFavourites(userID, cardID)
-  .then((response) => {
-    res.redirect(`/admin`)
+  .then(() => {
+    res.redirect(`/herocard/${cardID}`)
   });
 });
 
