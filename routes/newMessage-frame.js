@@ -10,6 +10,7 @@ router.get('/:id', (req, res) => {
   const templateVars = {};
   let messageID;
 
+  console.log(userID);
   const queryArr = [ userByCardIDQueries.getUserByCardID(cardID), cardQueries.getCard(cardID) ];
 
   Promise.all(queryArr)
@@ -27,11 +28,9 @@ router.get('/:id', (req, res) => {
       // If there is an existing convo, render the regular message
       if(values[0].length > 0){
         messageID = values[0][0].id;
-        console.log(messageID)
       }
     })
     .then((result) => {
-      console.log(messageID)
       messageID ? res.redirect(`/message/${messageID}`) : res.render('ch_new_message', templateVars);
     });
   })
