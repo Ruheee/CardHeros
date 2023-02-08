@@ -53,5 +53,20 @@ h1 {
         }
       }
     }
+
+    .button-container{
+      display: flex;
+      flex-direction: row;
+
+      .cancel-message{
+        background-color: #999999;
+        color: #333;
+        margin-right: 2em;
+
+        &:hover{
+          background-color: #aaaaaa;
+        }
+      }
+    }
   }
 }

@@ -58,4 +58,11 @@ body{
     }
   }
 
+  .new-message{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    min-height: 100vh;
+  }
 }

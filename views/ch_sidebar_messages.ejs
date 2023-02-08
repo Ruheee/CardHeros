@@ -20,6 +20,12 @@
 
 <body>
   <ul class="message-list">
+    <% if (user) { %>
+      <li class="message new-message">
+        <h3><%= user[0].name %></h3>
+        <p>New message</p>
+      </li>
+    <% } %>
     <% for (let message of messages) { %>
       <li class="message" id="<%= message.id %>">
         <% if (message.sender[0].id === userID) { %>
@@ -29,7 +35,6 @@
         <h3><%= message.sender[0].name %></h3>
         <p><%= message.sender[0].name %>: <%= message.message %></p>
         <% } %>
-        <p></p>
       </li>
     <% } %>
     </ul>
