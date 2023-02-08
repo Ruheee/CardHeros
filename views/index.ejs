@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/header.css"/>
+  <link rel="stylesheet" href="/styles/footer.css"/>
   <link rel="stylesheet" href="/styles/card.css" />
 <!-- Fonts and icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -26,32 +27,27 @@
 <body>
   <!-- header -->
   <%- include('partials/_header') %>
-
+  <main>
   <!-- Top  -->
   <section class="top-main">
     <!-- left top division -->
-    <div>
-      <span>CELEBRATING THE SPORTS</span>
-      <span>LEGENDS</span>
-    </div>
-    <div>
-      <img src="#" alt="Show card 1">
-      <img src="#" alt="Show card 2">
-      <img src="#" alt="Show card 3">
-    </div>
+
+      <span></span>
+      <!-- <img src="/images/index_image.png" alt="index background img"> -->
+
   </section>
   <!-- hot cards section  -->
-  <section>
-    <h2>HOT CARDS</h2>
+  <section class="mid-section">
+    <h2>Hot Cards</h2>
     <!-- Grid 2 rows  -->
-    <div class="cards">
+    <div class="cards mid-section">
       <% for (let card of result) { %>
         <%- include('./partials/_card.ejs', {card: card}) %>
       <% } %>
     </div>
   </section>
   <!-- Top Brands Section -->
-  <Section>
+  <Section class="mid-section">
     <h2>Top Brands</h2>
 
     <section class="brands">
@@ -118,6 +114,8 @@
 
     </section>
   </Section>
+</main>
+
   <!-- Footer -->
   <%- include('partials/_footer') %>
 </body>

@@ -10,9 +10,6 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const cookieSession = require('cookie-session');
 
-
-// const hotCardsQuery = require('./db/queries/hot-cards')
-
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -77,26 +74,6 @@ app.use('/', indexRoutes)
 
 // Note: mount other resources here, using the same pattern above
 
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-
-// app.get('/', (req, res) => {
-
-//   hotCardsQuery.getHotCards()
-//     .then(result => {
-//       const userID = req.session.user_id
-//       const templateVars = { userID, result }
-//       res.render('index', templateVars);
-//     })
-//     .catch(err => {
-//       res
-//         .status(500)
-//         .json({ error: err.message });
-//     });
-
-
-// });
 
 
 app.listen(PORT, () => {

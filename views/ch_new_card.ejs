@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/newCard.css" />
+  <link rel="stylesheet" href="/styles/header.css"/>
+  <link rel="stylesheet" href="/styles/footer.css"/>
+
   <!-- Fonts and icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -23,6 +26,8 @@
 </head>
 
 <body>
+    <!-- header -->
+    <%- include('partials/_header') %>
   <main>
     <h1>New Card</h1>
     <div class="form-container">
@@ -62,6 +67,8 @@
     </div>
 
   </main>
+    <!-- Footer -->
+    <%- include('partials/_footer') %>
 </body>
 
 </html>
