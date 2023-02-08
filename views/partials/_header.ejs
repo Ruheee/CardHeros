@@ -10,13 +10,15 @@
       <button type="submit">🔍</button>
     </form>
     <% if (userID) { %>
-      <form class="" action="/logout" method="GET">
-        <button type="submit" class="btn btn-primary">Logout</button>
-      </form>
+      <div class="login-menu">
+        <a href="/messages"><i class="fa-solid fa-message fa-2xl"></i></a>
 
-      <span><a href="/admin">admin</a></span>
-      <span><a href="/messages">messages</a></span>
-      <img src="https://i.pravatar.cc/55?img=<%= userID %>" alt="">
+        <a href="/admin"><img class="avatar" src="https://i.pravatar.cc/55?img=<%= userID %>" alt=""></a>
+
+        <form class="" action="/logout" method="GET">
+          <button type="submit" class="btn btn-primary">Logout</button>
+        </form>
+      </div>
     <% } %>
 
     <% if (!userID) { %>

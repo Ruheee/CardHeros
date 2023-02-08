@@ -1,3 +1,6 @@
+$squaresColor: rgb(66, 64, 64);
+
+
 .top-main {
   display: flex;
   justify-content: center;
@@ -14,25 +17,42 @@
 
 .brands {
   display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin: 5%;
+  flex-direction: column;
+  width: 100%;
+  margin: 20px 0;
 
-  .brand {
-    width: 25%;
+  .row1, .row2 {
+    display: flex;
+    flex-direction: row;
+  }
+
+
+    .brand {
+      margin: 5px 30px;
+      height: 200px;
+      border-radius: 10%;
+      background-color: $squaresColor;
+      box-shadow: 8px 3px 3px rgb(28, 28, 28);
+
+  }
+
 
     form {
       display: flex;
       justify-content: center;
       align-items: center;
+      align-content: center;
+      text-align: center;
     }
-  }
+
+
 }
 
 .brandBtn {
-  background-color: #333;
+  background-color: $squaresColor;
   width: 200px;
   height: 100px;
+  margin-top: 40px;
 }
 *{
   margin: 0;
