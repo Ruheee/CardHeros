@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/card.css" />
   <link rel="stylesheet" href="/styles/listingCards.css" />
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/footer.css"/>
+
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/cards.js"></script>
@@ -30,6 +33,8 @@
 </head>
 
 <body>
+  <!-- Header -->
+  <%- include('partials/_header') %>
   <nav class="filter">
     <main>
       <select name="sport" class="filter-select sport" required>
@@ -75,6 +80,8 @@
     <% } %>
     </div>
   </main>
+  <!-- Footer -->
+  <%- include('partials/_footer') %>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const getAllCardsQueries = require('../db/queries/getAllCards');
+const getAllCardsQueries = require('../db/queries/getCard');
 const priceMenuQuery = require('../db/queries/price-range');
 const sportQueries = require('../db/queries/sports')
 
