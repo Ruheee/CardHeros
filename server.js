@@ -51,6 +51,8 @@ const sidebarMessagesRoutes = require('./routes/sidebar-messages')
 const messagesRoutes = require('./routes/messages');
 const messageRoutes = require('./routes/message');
 const sendMessageRoutes = require('./routes/send-message');
+const newMessagesRoutes = require('./routes/newMessage');
+const sidebarNewMessagesRoutes = require('./routes/newMessage-sidebar');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -73,6 +75,8 @@ app.use('/sidebar-messages', sidebarMessagesRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/message', messageRoutes);
 app.use('/message', sendMessageRoutes);
+app.use('/messages', newMessagesRoutes);
+app.use('/sidebar-messages', sidebarNewMessagesRoutes);
 
 
 // Note: mount other resources here, using the same pattern above
