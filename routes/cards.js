@@ -3,17 +3,29 @@ const router  = express.Router();
 const sportsQuery = require('../db/queries/sports');
 const brandQuery = require('../db/queries/brands')
 
+const cardsQueries = require('../db/queries/cards');
+const userFavouritesQueries = require('../db/queries/userFavourites');
 
-
-// Renders EJS View and passes Sports and Brands info to EJS
 router.get('/', (req, res) => {
-  const templateVars = {}
-  const queryArr = [sportQueries.getSports(), brandQueries.getBrands()];
+  const userID = req.session.user_id;
+  const templateVars = { userID: +userID };
+  const filters = { sport: '', brand: '', price: ''}
+
+  const queryArr = [ cardsQueries.getCards(filters), userFavouritesQueries.getUserFavourites(userID) ];
+
   Promise.all(queryArr)
   .then((values) => {
-    templateVars[Object.keys(values[0][0])] = values[0];
-    templateVars[Object.keys(values[1][0])] = values[1];
-    res.render('ch_cards', templateVars)
+
+    for (result of values) {
+      if ('card_id' in result[0]){
+        const favourites = result.map(favourite => favourite.card_id);
+        templateVars.favourites = favourites;
+      } else {
+        templateVars.cards = result;
+      }
+    }
+
+    res.render('ch_cards', templateVars);
   });
 });
 
