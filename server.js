@@ -11,7 +11,7 @@ const app = express();
 const cookieSession = require('cookie-session');
 
 
-const hotCardsQuery = require('./db/queries/hot-cards')
+// const hotCardsQuery = require('./db/queries/hot-cards')
 
 app.set('view engine', 'ejs');
 
@@ -51,6 +51,7 @@ const sidebarMessagesRoutes = require('./routes/sidebar-messages')
 const messagesRoutes = require('./routes/messages');
 const messageRoutes = require('./routes/message');
 const sendMessageRoutes = require('./routes/send-message');
+const indexRoutes = require('./routes/index')
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -70,6 +71,7 @@ app.use('/messages', messagesRoutes);
 app.use('/message', messageRoutes);
 app.use('/message', sendMessageRoutes);
 app.use('/api/cards', getAllCardsRoutes);
+app.use('/', indexRoutes)
 
 
 
@@ -79,22 +81,22 @@ app.use('/api/cards', getAllCardsRoutes);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
-app.get('/', (req, res) => {
+// app.get('/', (req, res) => {
 
-  hotCardsQuery.getHotCards()
-    .then(result => {
-      const userID = req.session.user_id
-      const templateVars = { userID, result }
-      res.render('index', templateVars);
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
+//   hotCardsQuery.getHotCards()
+//     .then(result => {
+//       const userID = req.session.user_id
+//       const templateVars = { userID, result }
+//       res.render('index', templateVars);
+//     })
+//     .catch(err => {
+//       res
+//         .status(500)
+//         .json({ error: err.message });
+//     });
 
 
-});
+// });
 
 
 app.listen(PORT, () => {
