@@ -6,8 +6,13 @@ $(() => {
   messages.forEach(message => {
     message.addEventListener('click', () => {
       messages.forEach(message => message.classList.remove('active'));
-      message.classList.add('active');
-      window.parent.updateMessageFrame(message.id);
+
+      if ($("li.new-message").length) {
+        window.parent.location.href = '/messages'
+      } else {
+        message.classList.add('active');
+        window.parent.updateMessageFrame(message.id);
+      }
     });
   });
 });

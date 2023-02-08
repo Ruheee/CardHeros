@@ -1,13 +1,8 @@
-const { query } = require('express');
 const express = require('express');
 const router  = express.Router();
 const messagesQueries = require('../db/queries/messages');
 const userQueries = require('../db/queries/user');
 const userByCardIDQueries = require ('../db/queries/userByCardId');
-
-// GET card info using CARD ID
-// PUSH IT to templateVars as newMessage
-// RENDER the new message first
 
 router.get('/:id', (req, res) => {
   const cardID = req.params.id;
