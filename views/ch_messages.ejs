@@ -27,9 +27,14 @@
       <iframe id="sidebar-messages-frame" frameborder="0" allowfullscreen src="<%= card_id ? `/sidebar-messages/${card_id}` : `/sidebar-messages` %>"></iframe>
       <div class="message-bar">
         <iframe id="message-frame" frameborder="0" allowfullscreen src="<%= card_id ? `/new-message/${card_id}` : `/message/${firstMessage}` %>"></iframe>
-        <form id="message-form" action="<%= card_id ? '/' : `/message/${firstMessage}` %>" method="POST">
-          <textarea id="message-textarea" name="message"></textarea>
-          <input type="submit" value="Submit">
+        <form id="message-form" action="<%= card_id ? `/new-message/${card_id}` : `/message/${firstMessage}` %>" method="POST">
+          <textarea id="message-textarea" name="message" required></textarea>
+          <div class="button-container">
+            <% if (card_id) { %>
+            <input class="cancel-message" type="submit" value="Cancel">
+            <% } %>
+            <input class="submit-message" type="submit" value="Submit">
+          </div>
         </form>
       </div>
     </section>

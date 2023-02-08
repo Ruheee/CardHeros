@@ -2,7 +2,7 @@ const db = require('../connection');
 
 const getUserByCardID = ( cardID ) => {
   return db.query(`
-  SELECT name
+  SELECT *
   FROM users
   JOIN cards
   ON cards.user_id = users.id
