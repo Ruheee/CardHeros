@@ -10,9 +10,6 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const cookieSession = require('cookie-session');
 
-
-const hotCardsQuery = require('./db/queries/hot-cards')
-
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -40,10 +37,10 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const cardRoutes = require('./routes/cards');
+const cardApiRoutes = require('./routes/cards-api');
 const brandApiRoutes = require('./routes/getBrand-api');
 const sportApiRoutes = require('./routes/getSport-api');
 const userLogin = require('./routes/login');
-const getAllCardsRoutes = require('./routes/getAllCards-api');
 const adminRoutes = require('./routes/admin');
 const newCardRoutes = require('./routes/newCard');
 const addNewCardRoutes = require('./routes/addNewCard');
@@ -62,6 +59,7 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/cards', cardRoutes);
+app.use('/api/cards', cardApiRoutes);
 app.use('/api/brands', brandApiRoutes);
 app.use('/api/sports', sportApiRoutes);
 app.use('/login', userLogin);
@@ -75,8 +73,6 @@ app.use('/sidebar-messages', sidebarMessagesRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/message', messageRoutes);
 app.use('/message', sendMessageRoutes);
-app.use('/api/cards', getAllCardsRoutes);
-
 
 
 // Note: mount other resources here, using the same pattern above
@@ -84,6 +80,7 @@ app.use('/api/cards', getAllCardsRoutes);
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
+const hotCardsQuery = require('./db/queries/hot-cards')
 
 app.get('/', (req, res) => {
 
@@ -98,8 +95,6 @@ app.get('/', (req, res) => {
         .status(500)
         .json({ error: err.message });
     });
-
-
 });
 
 

@@ -34,7 +34,6 @@ Promise.all(queryArr).then((values) => {
     Promise.all(userQueriesArr)
     .then((result) => {
       templateVars.messages = result;
-      console.log(templateVars)
       res.render('ch_sidebar_messages', templateVars);
     });
   });
