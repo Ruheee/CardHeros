@@ -10,9 +10,6 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 const cookieSession = require('cookie-session');
 
-
-const hotCardsQuery = require('./db/queries/hot-cards')
-
 app.set('view engine', 'ejs');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -40,9 +37,11 @@ const userApiRoutes = require('./routes/users-api');
 const widgetApiRoutes = require('./routes/widgets-api');
 const usersRoutes = require('./routes/users');
 const cardRoutes = require('./routes/cards');
+const cardApiRoutes = require('./routes/cards-api');
 const brandApiRoutes = require('./routes/getBrand-api');
 const sportApiRoutes = require('./routes/getSport-api');
 const userLogin = require('./routes/login');
+const userLogout = require('./routes/logout');
 const getAllCardsRoutes = require('./routes/getAllCards-api');
 const adminRoutes = require('./routes/admin');
 const newCardRoutes = require('./routes/newCard');
@@ -57,6 +56,11 @@ const sendMessageRoutes = require('./routes/send-message');
 const cardsIDRoute = require('./routes/cards_id');
 const addCardToFav = require('./routes/addFavCard')
 const removeFavCard = require('./routes/removeFavCard')
+const indexRoutes = require('./routes/index')
+const newMessagesRoutes = require('./routes/newMessage');
+const sidebarNewMessagesRoutes = require('./routes/newMessage-sidebar');
+const newMessageRoutes = require('./routes/newMessage-frame');
+const sendNewMessageRoutes = require('./routes/send-newMessage');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -65,9 +69,11 @@ app.use('/api/users', userApiRoutes);
 app.use('/api/widgets', widgetApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/cards', cardRoutes);
+app.use('/api/cards', cardApiRoutes);
 app.use('/api/brands', brandApiRoutes);
 app.use('/api/sports', sportApiRoutes);
 app.use('/login', userLogin);
+app.use('/logout', userLogout)
 app.use('/admin', adminRoutes);
 app.use('/cards/new', newCardRoutes);
 app.use('/cards/new', addNewCardRoutes);
@@ -82,31 +88,16 @@ app.use('/api/cards', getAllCardsRoutes);
 app.use('/herocard', cardsIDRoute);// route for /card/:id
 app.use('/herocard', addCardToFav);// add to favourites
 app.use('/herocard/remove', removeFavCard);// remove from favourites
+app.use('/', indexRoutes)
 
+app.use('/messages', newMessagesRoutes);
+app.use('/sidebar-messages', sidebarNewMessagesRoutes);
+app.use('/new-message', newMessageRoutes);
+app.use('/new-message', sendNewMessageRoutes);
 
 
 // Note: mount other resources here, using the same pattern above
 
-// Home page
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
-
-app.get('/', (req, res) => {
-
-  hotCardsQuery.getHotCards()
-    .then(result => {
-      const templateVars = { result }
-      res.render('index', templateVars);
-      // res.render('search', templateVars)
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
-
-
-});
 
 
 app.listen(PORT, () => {

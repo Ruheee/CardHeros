@@ -69,4 +69,4 @@ const getBaseball = () => {
 };
 
 
-module.exports = { getSports, getSoccer, getBasketball, getHockey, getFootball, getBaseball  };
+module.exports = { getCardBySport, getSports, getSoccer, getBasketball, getHockey, getFootball, getBaseball  };

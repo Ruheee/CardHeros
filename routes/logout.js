@@ -6,16 +6,12 @@ const router  = express.Router();
 
   // using encrypted cookies
   //random number for user id 1 to 5
-const randomUserId = () => {
-  return Math.floor(Math.random() * (6 - 1) + 1)
-}
+req.session = null
   //assign session to a random user
-  req.session.user_id = randomUserId()
   //console log session user
-  console.log(req.session.user_id)
 
   // send the user somewhere
-  const userID = req.session.user_id
+  const userID = null
   const templateVars = { userID }
   res.redirect('/')
 });

@@ -1,17 +1,26 @@
-const { query } = require('express');
 const express = require('express');
 const router  = express.Router();
 const messagesQueries = require('../db/queries/messages');
 const userQueries = require('../db/queries/user');
+const userByCardIDQueries = require ('../db/queries/userByCardId');
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
+  const cardID = req.params.id;
   const userID = req.session.user_id;
-  const templateVars = { userID: +userID, user: [{name: ''}] };
+  const templateVars = { userID: +userID };
+  let messages;
 
-  const queryArr = [ messagesQueries.getMessages(userID) ];
+  const queryArr = [ messagesQueries.getMessages(userID), userByCardIDQueries.getUserByCardID(cardID) ];
 
 Promise.all(queryArr).then((values) => {
-  const messages = values[0];
+
+  for (result of values) {
+    if ('name' in result[0]){
+      templateVars.user = result;
+    } else {
+      messages = result;
+    }
+  }
 
   const userQueriesArr = messages.map(message => {
     return Promise.all([

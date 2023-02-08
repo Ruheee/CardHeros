@@ -5,7 +5,7 @@ const messageQueries = require('../db/queries/message');
 const sendMessageQueries = require('../db/queries/sendMessage');
 
 router.post('/:id', (req, res) => {
-  const userID = 5;
+  const userID = +req.session.user_id;
   const messageID = req.params.id;
   const message = req.body.message;
 

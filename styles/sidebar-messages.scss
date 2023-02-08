@@ -41,6 +41,14 @@ body{
       border-left: 5px solid #A70B0B;
     }
 
+    &.new-message {
+      border-left: 5px solid #F1BA0A;
+
+      p {
+        font-style: italic;
+      }
+    }
+
     &:hover{
       background-color: #444444;
     }
