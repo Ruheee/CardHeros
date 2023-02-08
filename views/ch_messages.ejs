@@ -13,6 +13,12 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/messages.css" />
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/footer.css"/>
+
+  <!-- Fonts and icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
@@ -21,6 +27,10 @@
 </head>
 
 <body>
+      <!-- header -->
+      <%- include('partials/_header') %>
+
+
   <main>
     <h1><%= card_id ? 'New Message' : 'My Messages' %></h1>
     <section class="message-block">
@@ -39,6 +49,9 @@
       </div>
     </section>
   </main>
+  <!-- footer -->
+  <%- include('partials/_footer') %>
+
 </body>
 
 </html>

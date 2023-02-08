@@ -14,14 +14,27 @@
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/card.css" />
   <link rel="stylesheet" href="/styles/listingCards.css" />
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/footer.css"/>
+
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/cards.js"></script>
   <script src="https://kit.fontawesome.com/519d339fcd.js" crossorigin="anonymous"></script>
 
+
+  <link rel="stylesheet" href="/styles/card.css">
+  <link rel="stylesheet" href="/styles/cards_view.css">
+  <link rel="stylesheet" href="/styles/dropdown.css"/>
+
+  <!-- Fonts and icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
+  <!-- Header -->
+  <%- include('partials/_header') %>
   <nav class="filter">
     <main>
       <select name="sport" class="filter-select sport" required>
@@ -67,6 +80,8 @@
     <% } %>
     </div>
   </main>
+  <!-- Footer -->
+  <%- include('partials/_footer') %>
 </body>
 
 </html>
