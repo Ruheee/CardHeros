@@ -9,6 +9,7 @@ router.get('/:id', (req, res) => {
 
   Promise.all(queryArr).then((values) => {
     const templateVars = {
+      userID: +userID,
       sender_id: +userID,
       card_id: +cardID,
       receiver_id: values[0][0].user_id
