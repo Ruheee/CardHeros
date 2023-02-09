@@ -17,11 +17,15 @@ router.get('/', (req, res) => {
   .then((values) => {
 
     for (result of values) {
-      if ('card_id' in result[0]){
-        const favourites = result.map(favourite => favourite.card_id);
-        templateVars.favourites = favourites;
+      if(!userID) {
+        result.length > 0 ? templateVars.cards = result : templateVars.favourites = result;
       } else {
-        templateVars.cards = result;
+        if ('card_id' in result[0]){
+          const favourites = result.map(favourite => favourite.card_id);
+          templateVars.favourites = favourites;
+        } else {
+          templateVars.cards = result;
+        }
       }
     }
 
@@ -30,48 +34,48 @@ router.get('/', (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
-  //request information from the form
-  //req.body.q = text entered in the form form index search bar
-  const userSearch = req.body.q.toLowerCase()
-  //arrays with all the sports and brands available to compare with the search
-  const sportArr = ['soccer', 'baseball', 'football', 'basketball', 'hockey'];
-  const brandArr = ['topps', 'panini', 'upper deck', 'bowman', 'fleer', 'futera', 'donruss', 'o-pee-chee'];
-  //if the word entered by user is in the sport array
-  if (sportArr.includes(userSearch)) {
-    sportsQuery.getCardBySport(userSearch)
-    .then(result => {
-      const userID = req.session.user_id;
-      const templateVars = { userID, result }
-      console.log(templateVars)
-      res.render('search', templateVars)
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
-  }
-  //if the word enterd in the search is a brand
-  if (brandArr.includes(userSearch)) {
-    brandQuery.getCardByBrand(userSearch)
-    .then(result => {
-      const userID = req.session.user_id;
-      const templateVars = { userID, result }
-      res.render('search', templateVars)
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
-  }
+// router.post('/', (req, res) => {
+//   //request information from the form
+//   //req.body.q = text entered in the form form index search bar
+//   const userSearch = req.body.q.toLowerCase()
+//   //arrays with all the sports and brands available to compare with the search
+//   const sportArr = ['soccer', 'baseball', 'football', 'basketball', 'hockey'];
+//   const brandArr = ['topps', 'panini', 'upper deck', 'bowman', 'fleer', 'futera', 'donruss', 'o-pee-chee'];
+//   //if the word entered by user is in the sport array
+//   if (sportArr.includes(userSearch)) {
+//     sportsQuery.getCardBySport(userSearch)
+//     .then(result => {
+//       const userID = req.session.user_id;
+//       const templateVars = { userID, result }
+//       console.log(templateVars)
+//       res.render('search', templateVars)
+//     })
+//     .catch(err => {
+//       res
+//         .status(500)
+//         .json({ error: err.message });
+//     });
+//   }
+//   //if the word enterd in the search is a brand
+//   if (brandArr.includes(userSearch)) {
+//     brandQuery.getCardByBrand(userSearch)
+//     .then(result => {
+//       const userID = req.session.user_id;
+//       const templateVars = { userID, result }
+//       res.render('search', templateVars)
+//     })
+//     .catch(err => {
+//       res
+//         .status(500)
+//         .json({ error: err.message });
+//     });
+//   }
 
-  //validate data with soccer, football, baseball or basketball
-  //look into the database for the word entered in sports
+//   //validate data with soccer, football, baseball or basketball
+//   //look into the database for the word entered in sports
 
 
-});
+// });
 
 module.exports = router;
 
