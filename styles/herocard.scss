@@ -41,6 +41,7 @@ main{
   justify-content: center;
   align-items: center;
   width: 50%;
+  margin-bottom: 5%;
   img{
     width: 4em;
     border-radius: 50%;
@@ -59,6 +60,11 @@ main{
     align-items: center;
     height: 175px;
     width: 25%;
+
+    p{
+      font-weight: bold;
+      font-size: 1.25em;
+    }
   }
 
   #card-info{
