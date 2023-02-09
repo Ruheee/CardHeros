@@ -15,7 +15,6 @@ router.get('/:id', (req, res) => {
   .then((response) => {
     templateVars['cards'] = response[1];
     templateVars['favourites'] = response[0];
-
     res.render('ch_show_card', templateVars);
   })
 })
