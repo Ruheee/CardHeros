@@ -7,15 +7,13 @@
       <input type="search" id="query" name="q"
        placeholder="Search a Sport or Brand"
        aria-label="Search through site content">
-      <button type="submit">🔍</button>
+      <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
     <% if (userID) { %>
       <div class="login-menu">
-        <a href="/messages"><i class="fa-solid fa-message fa-2xl"></i></a>
-        <a href="/cards"><i class="fa-solid fa-sheet-plastic fa-2xl"></i></a>
-
-        <a href="/admin"><img class="avatar" src="https://i.pravatar.cc/55?img=<%= userID %>" alt=""></a>
-        <p><%= userID %></p>
+        <a href="/cards" title="Cards"><i class="fa-solid fa-sheet-plastic fa-2xl"></i></a>
+        <a href="/messages" title="Messages"><i class="fa-solid fa-message fa-2xl"></i></a>
+        <a href="/admin" title="Profile"><img class="avatar" src="https://i.pravatar.cc/55?img=<%= userID %>" alt=""></a>
         <form class="" action="/logout" method="GET">
           <button type="submit" class="btn btn-primary">Logout</button>
         </form>
