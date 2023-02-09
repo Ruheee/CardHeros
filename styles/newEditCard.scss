@@ -1,136 +1,141 @@
-.form-container{
-  display: flex;
-  flex-direction: row;
+main.main-card{
+  margin-top: 5em;
 
-  .images-container{
-    display: flex;
-    flex-direction: row;
-    color: #777777;
-
-    .image-placeholder{
-      position: relative;
-      background-color: #D9D9D9;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 120%;
-      border: 1px solid #333;
-      width: 300px;
-      height: 420px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &.back-image{
-        margin-left: 2em;
-      }
-
-      &.error-input{
-        border: 0.2em solid #A70B0B;
-        color: #A70B0B;
-      }
-    }
-  }
-}
-
-.fields-container{
-  display: flex;
-  margin-left: 2em;
-  flex: 1 1 auto;
-  align-items: center;
-
-  form{
-    flex: 1 1 auto;
-    text-align: left;
-  }
-
-  .selects-container{
-    display: flex;
-
-    .sport-select, .brand-select{
-      width: 50%;
-    }
-
-    .sport-select{
-      margin-right: 1em;
-    }
-
-    .brand-select{
-      margin-left: 1em;
-    }
-  }
-
-  .button-container{
+  .form-container{
     display: flex;
     flex-direction: row;
 
-    input[type="text"].price{
-      margin-bottom: 0em;
-      margin-right: 1em;
-      width: 50%;
-    }
-
-    .radio-container{
-      width: auto;
+    .images-container{
       display: flex;
       flex-direction: row;
-      align-items: center;
-      margin: 0 1em;
+      color: #777777;
 
-      span.radio-legend {
+      .image-placeholder{
+        position: relative;
+        background-color: #D9D9D9;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 120%;
+        border: 1px solid #333;
+        width: 300px;
+        height: 420px;
+        cursor: pointer;
         display: flex;
         justify-content: center;
+        align-items: center;
+
+        &.back-image{
+          margin-left: 2em;
+        }
+
+        &.error-input{
+          border: 0.2em solid #A70B0B;
+          color: #A70B0B;
+        }
+      }
+    }
+  }
+
+  .fields-container{
+    display: flex;
+    margin-left: 2em;
+    flex: 1 1 auto;
+    align-items: center;
+
+    form{
+      flex: 1 1 auto;
+      text-align: left;
+    }
+
+    .selects-container{
+      display: flex;
+
+      .sport-select, .brand-select{
+        width: 50%;
       }
 
-      input[type="radio"] {
+      .sport-select{
+        margin-right: 1em;
+      }
+
+      .brand-select{
         margin-left: 1em;
       }
     }
 
-    .delete-card{
-      background-color: #999999;
-      border-radius: 2em;
-      font-weight: bold;
-      color: #333;
-      padding: 0.8em;
-      width: 250px;
-      cursor: pointer;
-      margin-left: 1em;
+    .button-container{
+      display: flex;
+      flex-direction: row;
 
-      &:hover{
-        background-color: #aaaaaa;
+      input[type="text"].price{
+        margin-bottom: 0em;
+        margin-right: 1em;
+        width: 50%;
       }
 
-      .fa-trash-can{
-        color: #A70B0B;
-        margin-right: 0.5em;
+      .radio-container{
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 0 1em;
+
+        span.radio-legend {
+          display: flex;
+          justify-content: center;
+        }
+
+        input[type="radio"] {
+          margin-left: 1em;
+        }
+      }
+
+      .delete-card{
+        background-color: #999999;
+        border-radius: 2em;
+        font-weight: bold;
+        color: #333;
+        padding: 0.8em;
+        width: 250px;
+        cursor: pointer;
+        margin-left: 1em;
+
+        &:hover{
+          background-color: #aaaaaa;
+        }
+
+        .fa-trash-can{
+          color: #A70B0B;
+          margin-right: 0.5em;
+        }
       }
     }
   }
-}
 
-select, input[type="text"] {
-  width: 100%;
-  padding: 1em;
-  margin-bottom: 2em;
-  border-radius: 1em;
-  border: 1px solid #333;
-  background-color: #D9D9D9;
-}
-
-input[type="submit"] {
-  background-color: #A70B0B;
-  border-radius: 2em;
-  font-weight: bold;
-  color: white;
-  padding: 0.8em;
-  width: 200px;
-  cursor: pointer;
-  margin-left: 1em;
-
-  &:hover {
-  background-color: #b80e0e;
+  select, input[type="text"] {
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 2em;
+    border-radius: 1em;
+    border: 1px solid #333;
+    background-color: #D9D9D9;
   }
+
+  input[type="submit"] {
+    background-color: #A70B0B;
+    border-radius: 2em;
+    font-weight: bold;
+    color: white;
+    padding: 0.8em;
+    width: 200px;
+    cursor: pointer;
+    margin-left: 1em;
+
+    &:hover {
+    background-color: #b80e0e;
+    }
+  }
+
 }
 
 .block-div{
@@ -138,6 +143,7 @@ input[type="submit"] {
   height: 100%;
   position: absolute;
   background-color: rgba(0,0,0,.9);
+  z-index: 99;
 }
 
 .pop-up {
@@ -148,8 +154,15 @@ input[type="submit"] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 100;
 
   input[type="text"]{
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 2em;
+    border-radius: 1em;
+    border: 1px solid #333;
+    background-color: #D9D9D9;
     margin: 0;
     color: black;
 
