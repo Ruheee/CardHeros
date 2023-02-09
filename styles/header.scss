@@ -1,7 +1,6 @@
 $baseColor: #333;
 $buttonColor: #a70b0b;
-$squaresColor: rgb(66, 64, 64);
-$shadowColor: rgb(35, 33, 33);
+$squaresColor: #3F3F3F;
 
 // style="position:absolute; top:0px; left:0px; height:200px; right:0px;overflow:hidden;"
 
@@ -9,48 +8,43 @@ header {
   width: 100%;
   background-color: $baseColor;
   position: fixed;
-  top: 0px;
+  top: 0;
+  z-index: 9;
 }
 
 nav {
+  height: 5em;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  align-items: center;
   background-color: $squaresColor;
   padding: .4rem;
-  width: 1440px;
   margin: auto;
-  box-shadow: 0px 3px 2px $shadowColor;
+  filter: drop-shadow(5px 5px 5px #292929);
 
   .search {
-    background-color: rgb(73, 72, 72);
-    width: 400px;
-    height: 44px;
-    border-radius: 5px;
+    width: 440px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
 
     input {
-      all: unset;
-      font: 16px system-ui;
-      color: #fff;
-      height: 100%;
       width: 100%;
-      padding: 6px 10px;
-      border-radius: 0.5rem;
-    }
-
-    ::placeholder {
-      color: #fff;
-      opacity: 0.7;
+      padding: 0.5em;
+      margin: 0 0 0 -1em;
+      border-radius: 1em;
+      border: 1px solid #333;
+      background-color: #D9D9D9;
     }
 
     button {
-      background-color:  rgb(73, 72, 72);
+      background: none;
+      margin-left: -2em;
       border: none;
       height: 100%;
-      border-radius: 0.5rem;
+      cursor: pointer;
     }
   }
 }
@@ -63,42 +57,39 @@ nav {
   width: 300px;
 
   .avatar {
+    border: 2px solid $squaresColor;
     border-radius: 50%;
+
+    &:hover{
+      border: 2px solid #A70B0B;
+    }
   }
 
   a {
     background-color: none;
-    color: none;
-  }
+      color: #666666;
 
-  .fa-solid {
-    background-color: #666666;
-    color: #666666;
+    &:hover{
+      color: $buttonColor;
+    }
   }
-
 }
 
 .btn {
-  -webkit-border-radius: 28;
-  -moz-border-radius: 28;
-  border-radius: 28px;
-  -webkit-box-shadow: 0px 1px 3px #666666;
-  -moz-box-shadow: 0px 1px 3px #666666;
-  box-shadow: 0px 1px 3px #666666;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 15px;
-  background: $buttonColor;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
+  background-color: #A70B0B;
+  border-radius: 2em;
+  font-weight: bold;
+  color: white;
+  padding: 0.8em;
+  width: auto;
+  cursor: pointer;
 
-.btn:hover {
-  background: #701515;
-  text-decoration: none;
+  &:hover {
+    background-color: #b80e0e;
+  }
 }
 
 .logo {
-  height: 3rem;
+  height: 3em;
 }
 

@@ -13,11 +13,11 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/header.css"/>
-  <link rel="stylesheet" href="/styles/footer.css"/>
+  <link rel="stylesheet" href="/styles/index.css"/>
   <link rel="stylesheet" href="/styles/card.css" />
+  <link rel="stylesheet" href="/styles/footer.css"/>
 <!-- Fonts and icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
@@ -25,99 +25,71 @@
 </head>
 
 <body>
-  <!-- header -->
   <%- include('partials/_header') %>
-  <main>
-  <!-- Top  -->
-  <section class="top-main">
-    <!-- left top division -->
+  <div class="hero-bg">
+    <img class="hero-image" src="./images/hero-image.png" />
+  </div>
+  <main class="index">
 
-      <span></span>
-      <!-- <img src="/images/index_image.png" alt="index background img"> -->
+  <h1>Hot Cards</h1>
+  <div class="cards">
+  <% for (let card of result) { %>
+    <%- include('./partials/_card.ejs', {card: card}) %>
+  <% } %>
+  </div>
 
-  </section>
-  <!-- hot cards section  -->
-  <section class="mid-section">
-    <h2>Hot Cards</h2>
-    <!-- Grid 2 rows  -->
-    <div class="cards mid-section">
-      <% for (let card of result) { %>
-        <%- include('./partials/_card.ejs', {card: card}) %>
-      <% } %>
+  <h1>Top Brands</h1>
+  <div class="brands">
+    <div class="brand">
+      <a href="/cards/topps">
+        <img class="logo" src="/images/topps_logo.png" />
+      </a>
     </div>
-  </section>
-  <!-- Top Brands Section -->
-  <Section class="mid-section">
-    <h2>Top Brands</h2>
 
-    <section class="brands">
-        <section class="row1">
-          <div class="brand">
-            <form method="POST" action="/cards">
-              <input name="q" type="hidden" value="topps">
-              <button class="brandBtn" type="submit" name="topps"><img class="brandLogo" src="/images/topps_logo.png" alt="Topps brand"></button>
-            </form>
-            </div>
+    <div class="brand">
+      <a href="">
+        <img class="logo" src="/images/panini_logo.png" />
+      </a>
+    </div>
 
-            <div class="brand">
-            <form method="POST" action="/cards">
-              <input name="q" type="hidden" value="bowman">
-              <button class="brandBtn" type="submit" name="bowman"><img class="brandLogo" src="/images/Bowman_brand_logo.png" alt="Bowman Brand"></button>
-            </form>
-            </div>
+    <div class="brand">
+      <a href="">
+        <img class="logo" src="/images/upper_deck_logo.png" />
+      </a>
+    </div>
 
-            <div class="brand">
-            <form method="POST" action="/cards">
-              <input name="q" type="hidden" value="donruss">
-              <button class="brandBtn" type="submit" name="Donruss"><img class="brandLogo" src="/images/Donruss_logo.png" alt="Donruss Brand"></button>
-            </form>
-            </div>
+    <div class="brand">
+      <a href="">
+        <img class="logo" src="/images/bowman_logo.png" />
+      </a>
+    </div>
 
+    <div class="brand">
+      <a href="">
+        <img class="logo" src="/images/fleer_logo.png" />
+      </a>
+    </div>
 
-            <div class="brand">
-            <form method="POST" action="/cards">
-              <input name="q" type="hidden" value="Fleer">
-              <button class="brandBtn" type="submit" name="Fleer"><img class="brandLogo" src="/images/fleer_logo.png" alt="Fleer Brand"></button>
-            </form>
-            </div>
+    <div class="brand">
+      <a href="">
+        <img class="logo" src="/images/futera_logo.png" />
+      </a>
+    </div>
 
-        </section>
-        <section class="row2">
-          <div class="brand">
-            <form method="POST" action="/cards">
-              <input name="q" type="hidden" value="Futera">
-              <button class="brandBtn" type="submit" name="Futera"><img class="brandLogo" src="/images/Futera_logo.png" alt="Futera Brand"></button>
-            </form>
-            </div>
+    <div class="brand">
+      <a href="">
+        <img class="logo" src="/images/donruss_logo.png" />
+      </a>
+    </div>
 
-            <div class="brand">
-            <form method="POST" action="/cards">
-              <input name="q" type="hidden" value="o-pee-chee">
-              <button class="brandBtn" type="submit" name="o-pee-chee"><img class="brandLogo" src="/images/opc_logo.png" alt="o-pee-chee Brand"></button>
-            </form>
-            </div>
-
-            <div class="brand">
-            <form method="POST" action="/cards">
-              <input name="q" type="hidden" value="panini">
-              <button class="brandBtn" type="submit" name="panini"><img class="brandLogo" src="/images/panini_logo.png" alt="panini Brand"></button>
-            </form>
-            </div>
-
-            <div class="brand">
-            <form method="POST" action="/cards">
-              <input name="q" type="hidden" value="upper deck">
-              <button class="brandBtn" type="submit" name="upper-deck"><img class="brandLogo" src="/images/upper_deck_logo.png" alt="upper-deck Brand"></button>
-            </form>
-            </div>
-          </section>
-
-    </section>
-  </Section>
+    <div class="brand">
+      <a href="">
+        <img class="logo" src="/images/opc_logo.png" />
+      </a>
+    </div>
+  </div>
 </main>
-
-  <!-- Footer -->
-  <%- include('partials/_footer') %>
+<%- include('partials/_footer') %>
 </body>
 
 </html>
