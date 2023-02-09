@@ -4,11 +4,11 @@
       <a href="/">
         <img class="logo" src="/images/Logo.png" alt="Card Heroes Logo">
       </a>
-      <form class="search" id="form" method="POST" action="/cards" role="search">
-        <input type="search" id="query" name="q"
-        placeholder="Search a Sport or Brand"
+      <form method="GET" class="search" action="/cards" role="search">
+        <input type="search"  id="search" placeholder="Search a Sport or Brand"
         aria-label="Search through site content">
         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="search-menu"></div>
       </form>
       <% if (userID) { %>
       <div class="login-menu">
