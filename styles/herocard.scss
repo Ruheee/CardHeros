@@ -1,0 +1,170 @@
+$box-shadow: #252525;
+$box-background: #414040;
+$buttonColor: #a70b0b;
+$favbtn: #F1BA0A;
+
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  min-height: 100vh;
+  background: #333;
+  font-family: system-ui;
+}
+
+main{
+  width: 1440px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+.container {
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+
+.seller-info-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 5%;
+  img{
+    width: 4em;
+    border-radius: 50%;
+    margin-bottom:10px ;
+  }
+
+  #user-card{
+    background-color: $box-background;
+    box-shadow:  2px 2px 5px $box-shadow;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 175px;
+    width: 25%;
+
+    p{
+      font-weight: bold;
+      font-size: 1.25em;
+    }
+  }
+
+  #card-info{
+    background-color: $box-background;
+    box-shadow:  2px 2px 5px $box-shadow;
+    border-radius: 10px;
+    margin: 0 10px;
+    color: white;
+    height: 175px;
+    width: 50%;
+  }
+
+  #player-card{
+    margin: 10px;
+  }
+
+  #description{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    margin: 10px;
+    font-size: 14px;
+  }
+
+  .description-list{
+    margin-bottom: 3px;
+  }
+
+  #price-info{
+    background-color: $box-background;
+    box-shadow:  2px 2px 5px $box-shadow;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 175px;
+    width:25%;
+
+    span{
+      margin-top: 20px;
+      font-size: 32px;
+      font-weight: bolder;
+      color: yellow;
+    }
+    #favourites{
+      text-decoration: none;
+      color: white;
+      margin: 20px 0;
+      display: flex;
+      flex-direction: column;
+    }
+    #contact-btn{
+      font-size: 12px;
+      text-decoration: none;
+      background-color: #a70b0b;
+      color: white;
+      padding: 7px 20px;
+      border-radius: 30px;
+      margin-bottom: 10px;
+      text-align: center;
+      width: 160px;
+    }
+    #fav-btn {
+      font-size: 12px;
+      background-color: $favbtn;
+      padding: 7px 30px;
+      border-radius: 30px;
+      margin-bottom: 10px;
+      text-align: center;
+      width: 160px;
+
+      &:hover{
+        color: black;
+        opacity: 75%;
+        cursor: pointer;
+    }
+  }
+  #remove-btn{
+      font-size: 12px;
+      background-color: $favbtn;
+      padding: 7px 30px;
+      border-radius: 30px;
+      margin-bottom: 10px;
+      text-align: center;
+      width: 160px;
+
+      &:hover{
+        color: black;
+        opacity: 75%;
+        cursor: pointer;
+      }
+  }
+}
+
+}
+
+
+body{
+  background-color:  #333; ;
+}
+
+
