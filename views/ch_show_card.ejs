@@ -15,46 +15,60 @@
 </head>
 <body>
   <%- include('partials/_header') %>
-  <div class="cards">
 
-    <img class="card" src="<%= cards.card_front_url %>" alt="photo of card">
-    <img class="card"src="<%= cards.card_back_url %>" alt="photo of card">
+  <div class="container">
 
-  </div>
-  <img src="" alt="stage of card">
-  <div class="user-card-card">
-    <div id="user-card">
-      <img src="" alt="">
-      <p>Jimmy Wright</p>
-    </div>
-    <div id="card-card">
-      <div id="player-card">
-
-        <p><%= cards.player_name%></p>
-        <p><%= cards.title %></p>
-      </div>
-      <div>
-        <p>Sport: <%= cards.sport%></p>
-        <p>Description: <%= cards.description %></p>
+      <div class="cards">
+        <img class="card" src="<%= cards.card_front_url %>" alt="photo of card">
+        <img src="" alt="stage of card">
       </div>
 
-    </div>
-    <div id="price-info">
-      <span>$<%= cards.price %></span>
-      <div id="favourites">
-          <a href="/messages/43">Contact Seller</a>
-        <% if (favourites) { %>
-          <form action="/herocard/remove/<%= cards.id%>" method="POST">
-            <button> Remove </button></a>
-        </form>
+
+      <div class="seller-info-container">
+        <% if (userID) { %>
+
+          <a href="/admin" id="user-card">
+            <img src="https://i.pravatar.cc/55?img=<%= userID %>" alt="user image">
+            <p>Jimmy Wright</p>
+          </a>
+
         <% } %>
-        <% if (!favourites) { %>
-          <form action="/herocard/<%= cards.id %>" method="POST">
-            <button> Add to favourites </button>
-          </form>
-        <% } %>
+
+        <div id="card-info">
+
+          <div id="player-card">
+            <h3><%= cards.player_name%></h3>
+            <p><%= cards.title %></p>
+          </div>
+
+          <div id="description">
+            <p class="description-list">Sport: <%= cards.sport%></p>
+            <p class="description-list">Brand: <%= cards.brand %></p>
+            <p class="description-list">Player: <%= cards.player_name %></p>
+            <p class="description-list">Description: <%= cards.description %></p>
+          </div>
+
+        </div>
+
+        <div id="price-info">
+          <span>$<%= cards.price %>.00</span>
+          <div id="favourites">
+              <a href="/messages/43" id="contact-btn">Contact Seller</a>
+            <% if (!favourites) { %>
+              <form action="/herocard/<%= cards.id %>" method="POST" >
+                <button id="fav-btn"> Add to favourites </button>
+              </form>
+            <% } %>
+            <% if (favourites) { %>
+              <form action="/herocard/remove/<%= cards.id%>" method="POST">
+                <button id="remove-btn"> Remove </button>
+              </form>
+            <% } %>
+          </div>
+        </div>
       </div>
-    </div>
+    <%- include('partials/_footer') %>
   </div>
+
 </body>
 </html>
