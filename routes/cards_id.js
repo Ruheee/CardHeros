@@ -6,9 +6,10 @@ const getSellerName = require('../db/queries/users');
 
 
 router.get('/:id', (req, res) => {
+  const currentURL = '/cards/id'
   const cardID = req.params.id;
   const userID = req.session.user_id;
-  let templateVars = { userID };
+  let templateVars = { userID, currentURL };
   const queryArr = [checkFavourite.checkFavourite(userID, cardID),
     getSellerName.getCardInfo(cardID)]
   Promise.all(queryArr)

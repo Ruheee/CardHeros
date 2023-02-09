@@ -73,7 +73,6 @@ app.use('/sidebar-messages', sidebarMessagesRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/message', messageRoutes);
 app.use('/message', sendMessageRoutes);
-app.use('/api/cards', getAllCardsRoutes);
 app.use('/herocard', cardsIDRoute);// route for /card/:id
 app.use('/herocard', addCardToFav);// add to favourites
 app.use('/herocard/remove', removeFavCard);// remove from favourites
