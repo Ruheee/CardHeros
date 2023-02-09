@@ -5,8 +5,9 @@ const favouritesQueries = require('../db/queries/favourites');
 const myCardsQueries = require('../db/queries/my-cards');
 
 router.get('/', (req, res) => {
+  const currentURL = '/admin'
   const userID = req.session.user_id;
-  const templateVars = { userID: +userID };
+  const templateVars = { userID: +userID, currentURL };
 
   const queryArr = [ favouritesQueries.getFavourites(userID), myCardsQueries.getMyCards(userID) ];
 

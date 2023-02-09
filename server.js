@@ -33,17 +33,11 @@ app.use(cookieSession({
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require('./routes/users-api');
-const widgetApiRoutes = require('./routes/widgets-api');
-const usersRoutes = require('./routes/users');
-const cardRoutes = require('./routes/cards');
-const cardApiRoutes = require('./routes/cards-api');
-const brandApiRoutes = require('./routes/getBrand-api');
-const sportApiRoutes = require('./routes/getSport-api');
 const userLogin = require('./routes/login');
 const userLogout = require('./routes/logout');
-const getAllCardsRoutes = require('./routes/getAllCards-api');
 const adminRoutes = require('./routes/admin');
+const cardRoutes = require('./routes/cards');
+const cardApiRoutes = require('./routes/cards-api');
 const newCardRoutes = require('./routes/newCard');
 const addNewCardRoutes = require('./routes/addNewCard');
 const editCardRoutes = require('./routes/editCard');
@@ -62,16 +56,11 @@ const sendNewMessageRoutes = require('./routes/send-newMessage');
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/api/users', userApiRoutes);
-app.use('/api/widgets', widgetApiRoutes);
-app.use('/users', usersRoutes);
-app.use('/cards', cardRoutes);
-app.use('/api/cards', cardApiRoutes);
-app.use('/api/brands', brandApiRoutes);
-app.use('/api/sports', sportApiRoutes);
 app.use('/login', userLogin);
 app.use('/logout', userLogout)
 app.use('/admin', adminRoutes);
+app.use('/cards', cardRoutes);
+app.use('/api/cards', cardApiRoutes);
 app.use('/cards/new', newCardRoutes);
 app.use('/cards/new', addNewCardRoutes);
 app.use('/cards', editCardRoutes);
@@ -81,18 +70,13 @@ app.use('/sidebar-messages', sidebarMessagesRoutes);
 app.use('/messages', messagesRoutes);
 app.use('/message', messageRoutes);
 app.use('/message', sendMessageRoutes);
-app.use('/api/cards', getAllCardsRoutes);
 app.use('/', indexRoutes)
-
 app.use('/messages', newMessagesRoutes);
 app.use('/sidebar-messages', sidebarNewMessagesRoutes);
 app.use('/new-message', newMessageRoutes);
 app.use('/new-message', sendNewMessageRoutes);
 
-
 // Note: mount other resources here, using the same pattern above
-
-
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);

@@ -1,6 +1,5 @@
 const db = require('../connection');
 
-
 const getHotCards = () => {
   //random card generator
   let randomIdArr = []

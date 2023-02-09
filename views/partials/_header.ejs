@@ -17,14 +17,14 @@
           <a href="/messages" title="Messages" class="link"><i class="fa-solid fa-message fa-2xl"></i></a>
           <a href="/admin" title="Profile"><img class="avatar" src="https://i.pravatar.cc/55?img=<%= userID %>" alt=""></a>
         </div>
-        <a href="/logout" title="Logout" class="button">Logout</a>
+        <a href="/logout?origin=<%= currentURL %>" title="Logout" class="button">Logout</a>
       </div>
       <% } else { %>
       <div class="login-menu">
         <div class="links">
           <a href="/cards" title="Cards" class="link"><i class="fa-solid fa-sheet-plastic fa-2xl"></i></a>
         </div>
-        <a href="/login" title="Logout" class="button">Login</a>
+        <a href="/login?origin=<%= currentURL %>" title="Logout" class="button">Login</a>
        </div>
       <% } %>
     </main>
