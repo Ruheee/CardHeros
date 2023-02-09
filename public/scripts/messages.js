@@ -35,6 +35,8 @@ function updateSidebarFrame() {
 $(document).on('keyup', function(e) {
   if($('.cancel-message').length){
     if (e.key == "Escape") $('.cancel-message').click();
+  } else {
+    if (e.key == "Escape") window.location.href='/admin';
   }
 });
 

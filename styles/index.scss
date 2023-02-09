@@ -44,7 +44,17 @@ main.index{
 
       .logo{
         width: 100%;
-        height: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .cards{
+    .card{
+    margin-right: 5em;
+
+      &:nth-child(4n){
+        margin-right: 0;
       }
     }
   }

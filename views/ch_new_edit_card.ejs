@@ -12,18 +12,23 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/footer.css"/>
   <link rel="stylesheet" href="/styles/newEditCard.css" />
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/new-card.js"></script>
   <script defer src="/scripts/deleteCard.js"></script>
+  <script defer src="/scripts/searchbar.js"></script>
   <script src="https://kit.fontawesome.com/519d339fcd.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-  <main>
+  <!-- header -->
+  <%- include('partials/_header') %>
+  <main class="main-card">
     <h1><%= id ? 'Edit Card' : 'New Card' %></h1>
     <div class="form-container">
       <side class="images-container">
@@ -80,6 +85,8 @@
       </div>
     </div>
   </main>
+  <!-- footer -->
+  <%- include('partials/_footer') %>
 </body>
 
 </html>

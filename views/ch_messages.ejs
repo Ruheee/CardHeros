@@ -22,13 +22,14 @@
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/users.js"></script>
   <script defer src="/scripts/messages.js"></script>
+  <script defer src="/scripts/searchbar.js"></script>
 
 </head>
 
 <body>
   <!-- header -->
   <%- include('partials/_header') %>
-  <main>
+  <main class="main-messages">
     <h1><%= card_id ? 'New Message' : 'My Messages' %></h1>
     <section class="message-block">
       <iframe id="sidebar-messages-frame" frameborder="0" allowfullscreen src="<%= card_id ? `/sidebar-messages/${card_id}` : `/sidebar-messages` %>"></iframe>

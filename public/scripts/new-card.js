@@ -67,6 +67,8 @@ $(document).on('keyup', function(e) {
   if($('.pop-up').length){
     if (e.key == "Enter") $('.submit-url').click();
     if (e.key == "Escape") $('.cancel-url').click();
+  } else {
+    if (e.key == "Escape") window.location.href='/admin';
   }
 });
 

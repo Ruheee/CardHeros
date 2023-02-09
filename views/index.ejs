@@ -13,14 +13,14 @@
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <link rel="stylesheet" href="/styles/header.css"/>
-  <link rel="stylesheet" href="/styles/index.css"/>
   <link rel="stylesheet" href="/styles/card.css" />
+  <link rel="stylesheet" href="/styles/index.css"/>
   <link rel="stylesheet" href="/styles/footer.css"/>
 <!-- Fonts and icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/searchbar.js"></script>
 
 </head>
 
@@ -40,53 +40,53 @@
 
   <h1>Top Brands</h1>
   <div class="brands">
-    <div class="brand">
-      <a href="/cards/topps">
+    <a href="/cards/?brand=topps">
+      <div class="brand">
         <img class="logo" src="/images/topps_logo.png" />
-      </a>
-    </div>
+      </div>
+    </a>
 
-    <div class="brand">
-      <a href="">
+    <a href="/cards/?brand=panini">
+      <div class="brand">
         <img class="logo" src="/images/panini_logo.png" />
-      </a>
-    </div>
+      </div>
+    </a>
 
-    <div class="brand">
-      <a href="">
+    <a href="/cards/?brand=upper deck">
+      <div class="brand">
         <img class="logo" src="/images/upper_deck_logo.png" />
-      </a>
-    </div>
+      </div>
+    </a>
 
-    <div class="brand">
-      <a href="">
+    <a href="/cards/?brand=bowman">
+      <div class="brand">
         <img class="logo" src="/images/bowman_logo.png" />
-      </a>
-    </div>
+      </div>
+    </a>
 
-    <div class="brand">
-      <a href="">
+    <a href="/cards/?brand=fleer">
+      <div class="brand">
         <img class="logo" src="/images/fleer_logo.png" />
-      </a>
-    </div>
+      </div>
+    </a>
 
-    <div class="brand">
-      <a href="">
+    <a href="/cards/?brand=futera">
+      <div class="brand">
         <img class="logo" src="/images/futera_logo.png" />
-      </a>
-    </div>
+      </div>
+    </a>
 
-    <div class="brand">
-      <a href="">
+    <a href="/cards/?brand=donruss">
+      <div class="brand">
         <img class="logo" src="/images/donruss_logo.png" />
-      </a>
-    </div>
+      </div>
+    </a>
 
-    <div class="brand">
-      <a href="">
+    <a href="/cards/?brand=o-pee-chee">
+      <div class="brand">
         <img class="logo" src="/images/opc_logo.png" />
-      </a>
-    </div>
+      </div>
+    </a>
   </div>
 </main>
 <%- include('partials/_footer') %>
