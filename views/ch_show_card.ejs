@@ -10,19 +10,21 @@
   <link rel="stylesheet" href="/styles/herocard.css">
   <link rel="stylesheet" href="/styles/header.css">
   <link rel="stylesheet" href="/styles/footer.css">
+  <link rel="stylesheet" href="/styles/card-flip.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
   <%- include('partials/_header') %>
 
-  <div class="container">
-
-      <div class="cards">
-        <img class="card" src="<%= cards.card_front_url %>" alt="photo of card">
-        <img class="card" src="<%= cards.card_back_url %>" alt="photo of card">
-        <img src="" alt="stage of card">
+      <div class="main-container">
+        <div class="cards">
+          <div class="the-front"><img class="card" src="<%= cards.card_front_url %>" alt="photo of card"></div>
+          <div class="the-back"><img class="card" src="<%= cards.card_back_url %>" alt="photo of card"></div>
+        </div>
       </div>
+
+        <img src="/images/stage.png" alt="stage of card">
 
 
       <div class="seller-info-container">
