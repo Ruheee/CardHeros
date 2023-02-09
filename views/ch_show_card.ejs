@@ -28,15 +28,10 @@
 
 
       <div class="seller-info-container">
-        <% if (userID) { %>
-
           <a href="/admin" id="user-card">
-            <img src="https://i.pravatar.cc/55?img=<%= userID %>" alt="user image">
-            <p><%= user.name %></p>
+            <img src="https://i.pravatar.cc/55?img=<%= cards.seller_name %>" alt="user image">
+            <p><%= cards.seller_name %></p>
           </a>
-
-        <% } %>
-
         <div id="card-info">
 
           <div id="player-card">

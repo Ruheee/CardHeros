@@ -7,14 +7,19 @@ const getUsers = () => {
     });
 };
 
-const getUsersName = (userID) => {
-  return db.query (`
-  SELECT *
-  FROM users
-  WHERE id = $1;`,[userID])
+
+const getCardInfo = (cardID) => {
+  return db
+  .query(`
+  SELECT cards.*, users.name as seller_name
+  FROM cards
+  JOIN users ON users.id = user_id
+  WHERE cards.id = $1;
+  `, [cardID])
   .then(data => {
-    return data.rows;
+    return data.rows[0];
   });
 }
 
-module.exports = { getUsers, getUsersName };
+
+module.exports = { getUsers, getCardInfo };
