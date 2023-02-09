@@ -2,69 +2,74 @@ h1 {
   color: white;
 }
 
-.message-block{
-  display: flex;
-  justify-content: space-between;
-  flex: 1;
+main.main-messages{
+  min-height: calc(100vh - 16.5em);
+  margin-top: 5em;
 
-  #sidebar-messages-frame{
+  .message-block{
     display: flex;
-    width: 400px;
-    margin-right: 1em;
-  }
+    justify-content: space-between;
+    flex: 1;
 
-  .message-bar{
-    display: flex;
-    flex-direction: column;
-    flex: 1 1 auto;
-
-    #message-frame{
-      flex: 1;
-      height: 100%;
-      width: 1040px;
-      margin-bottom: 2em;
+    #sidebar-messages-frame{
+      display: flex;
+      width: 400px;
+      margin-right: 1em;
     }
 
-    form{
+    .message-bar{
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
+      flex: 1 1 auto;
 
-      textarea {
-        width: 100%;
-        border-radius: 1em;
-        padding: 2em;
-        border: 1px solid #333;
-        background-color: #D9D9D9;
+      #message-frame{
+        flex: 1;
+        height: 100%;
+        width: 1040px;
         margin-bottom: 2em;
       }
 
-      input[type=submit] {
-        background-color: #A70B0B;
-        border-radius: 2em;
-        font-weight: bold;
-        color: white;
-        padding: 0.8em;
-        width: 200px;
-        cursor: pointer;
+      form{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
 
-        &:hover{
-          background-color: #b80e0e;
+        textarea {
+          width: 100%;
+          border-radius: 1em;
+          padding: 2em;
+          border: 1px solid #333;
+          background-color: #D9D9D9;
+          margin-bottom: 2em;
+        }
+
+        input[type=submit] {
+          background-color: #A70B0B;
+          border-radius: 2em;
+          font-weight: bold;
+          color: white;
+          padding: 0.8em;
+          width: 200px;
+          cursor: pointer;
+
+          &:hover{
+            background-color: #b80e0e;
+          }
         }
       }
-    }
 
-    .button-container{
-      display: flex;
-      flex-direction: row;
+      .button-container{
+        display: flex;
+        flex-direction: row;
 
-      .cancel-message{
-        background-color: #999999;
-        color: #333;
-        margin-right: 2em;
+        .cancel-message{
+          background-color: #999999;
+          color: #333;
+          margin-right: 2em;
 
-        &:hover{
-          background-color: #aaaaaa;
+          &:hover{
+            background-color: #aaaaaa;
+          }
         }
       }
     }

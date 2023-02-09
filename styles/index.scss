@@ -48,4 +48,14 @@ main.index{
       }
     }
   }
+
+  .cards{
+    .card{
+    margin-right: 5em;
+
+      &:nth-child(4n){
+        margin-right: 0;
+      }
+    }
+  }
 }

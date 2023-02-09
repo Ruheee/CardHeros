@@ -18,3 +18,18 @@
     background-color: #b80e0e;
   }
 }
+
+main.main-data{
+  margin-top: 5em;
+
+  .cards{
+
+    .card-container{
+      margin-right: 5em;
+
+      &:nth-child(4n){
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css">
+  <link rel="stylesheet" href="/styles/footer.css"/>
   <link rel="stylesheet" href="/styles/newEditCard.css" />
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
@@ -23,7 +25,9 @@
 </head>
 
 <body>
-  <main>
+  <!-- header -->
+  <%- include('partials/_header') %>
+  <main class="main-card">
     <h1><%= id ? 'Edit Card' : 'New Card' %></h1>
     <div class="form-container">
       <side class="images-container">
@@ -80,6 +84,8 @@
       </div>
     </div>
   </main>
+  <!-- footer -->
+  <%- include('partials/_footer') %>
 </body>
 
 </html>

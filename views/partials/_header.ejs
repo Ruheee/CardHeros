@@ -1,30 +1,32 @@
 <header>
   <nav>
-    <a href="/">
-      <img class="logo" src="/images/Logo.png" alt="Card Heroes Logo">
-    </a>
-    <form class="search" id="form" method="POST" action="/cards" role="search">
-      <input type="search" id="query" name="q"
-       placeholder="Search a Sport or Brand"
-       aria-label="Search through site content">
-      <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
-    <% if (userID) { %>
+    <main>
+      <a href="/">
+        <img class="logo" src="/images/Logo.png" alt="Card Heroes Logo">
+      </a>
+      <form class="search" id="form" method="POST" action="/cards" role="search">
+        <input type="search" id="query" name="q"
+        placeholder="Search a Sport or Brand"
+        aria-label="Search through site content">
+        <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </form>
+      <% if (userID) { %>
       <div class="login-menu">
-        <a href="/cards" title="Cards"><i class="fa-solid fa-sheet-plastic fa-2xl"></i></a>
-        <a href="/messages" title="Messages"><i class="fa-solid fa-message fa-2xl"></i></a>
-        <a href="/admin" title="Profile"><img class="avatar" src="https://i.pravatar.cc/55?img=<%= userID %>" alt=""></a>
-        <form class="" action="/logout" method="GET">
-          <button type="submit" class="btn btn-primary">Logout</button>
-        </form>
+        <div class="links">
+          <a href="/cards" title="Cards" class="link"><i class="fa-solid fa-sheet-plastic fa-2xl"></i></a>
+          <a href="/messages" title="Messages" class="link"><i class="fa-solid fa-message fa-2xl"></i></a>
+          <a href="/admin" title="Profile"><img class="avatar" src="https://i.pravatar.cc/55?img=<%= userID %>" alt=""></a>
+        </div>
+        <a href="/logout" title="Logout" class="button">Logout</a>
       </div>
-    <% } %>
-
-    <% if (!userID) { %>
-    <form class="" action="/login" method="GET">
-      <button type="submit" class="btn btn-primary">Login</button>
-    </form>
-    <% } %>
-
+      <% } else { %>
+      <div class="login-menu">
+        <div class="links">
+          <a href="/cards" title="Cards" class="link"><i class="fa-solid fa-sheet-plastic fa-2xl"></i></a>
+        </div>
+        <a href="/login" title="Logout" class="button">Login</a>
+       </div>
+      <% } %>
+    </main>
   </nav>
 </header>
