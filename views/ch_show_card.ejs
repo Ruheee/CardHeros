@@ -5,68 +5,58 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title><%= cards.title%></title>
+  <title><%= card.title %> | Card Heroes</title>
 
-  <link rel="stylesheet" href="/styles/herocard.css">
-  <link rel="stylesheet" href="/styles/header.css">
-  <link rel="stylesheet" href="/styles/footer.css">
-  <link rel="stylesheet" href="/styles/card-flip.css">
-
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/herocard.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/footer.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/searchbar.js"></script>
 </head>
 <body>
-  <%- include('partials/_header') %>
+<%- include('partials/_header') %>
 
-      <div class="main-container">
-        <div class="cards">
-          <div class="the-front"><img class="card" src="<%= cards.card_front_url %>" alt="photo of card"></div>
-          <div class="the-back"><img class="card" src="<%= cards.card_back_url %>" alt="photo of card"></div>
-        </div>
-      </div>
-
-        <img src="/images/stage.png" alt="stage of card">
-
-
-      <div class="seller-info-container">
-          <a href="/admin" id="user-card">
-            <img src="https://i.pravatar.cc/55?img=<%= cards.seller_name %>" alt="user image">
-            <p><%= cards.seller_name %></p>
-          </a>
-        <div id="card-info">
-
-          <div id="player-card">
-            <h3><%= cards.player_name%></h3>
-            <p><%= cards.title %></p>
-          </div>
-
-          <div id="description">
-            <p class="description-list">Sport: <%= cards.sport%></p>
-            <p class="description-list">Brand: <%= cards.brand %></p>
-            <p class="description-list">Player: <%= cards.player_name %></p>
-            <p class="description-list">Description: <%= cards.description %></p>
-          </div>
-
-        </div>
-
-        <div id="price-info">
-          <span>$<%= cards.price %>.00</span>
-          <div id="favourites">
-              <a href="/messages/43" id="contact-btn">Contact Seller</a>
-            <% if (!favourites) { %>
-              <form action="/herocard/<%= cards.id %>" method="POST" >
-                <button id="fav-btn"> Add to favourites </button>
-              </form>
-            <% } %>
-            <% if (favourites) { %>
-              <form action="/herocard/remove/<%= cards.id%>" method="POST">
-                <button id="remove-btn"> Remove </button>
-              </form>
-            <% } %>
-          </div>
-        </div>
-      </div>
-    <%- include('partials/_footer') %>
+<main class="main-herocard">
+  <div class="herocard-container">
+    <div class="card">
+      <div class="card-img front" style="background-image: url('<%= card.card_front_url %>');"></div>
+      <div class="card-img back" style="background-image: url('<%= card.card_back_url %>');"></div>
+    </div>
   </div>
 
+  <div class="info-container">
+    <div class="info-block">
+      <img class="avatar" src="https://i.pravatar.cc/200?img=<%= card.seller_name %>">
+      <h2 class="user-name"><%= card.name %></h2>
+    </div>
+    <div class="info-block">
+      <h2><%= card.player_name %></h2>
+      <h3><%= card.title %></h3>
+      <p>Sport: <%= card.sport %></p>
+      <p>Brand: <%= card.brand %></p>
+      <p><%= card.description %></p>
+    </div>
+    <div class="info-block">
+      <span>$ <%= card.price %>.00</span>
+      <div class="button-container">
+        <form action="<%= favourites.count === '0' ? `/herocard/${card.id}` : `/herocard/remove/${card.id}` %>" method="POST">
+        <button class="fav-btn"><%= favourites.count === '0' ? 'Add to favourites' : 'Remove' %></button>
+        </form>
+        <% if(card.user_id != userID) { %>
+          <a href="/messages/<%= card.id %>" class="contact-btn">Contact Seller</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<%- include('partials/_footer') %>
 </body>
 </html>

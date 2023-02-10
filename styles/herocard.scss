@@ -1,170 +1,139 @@
-$box-shadow: #252525;
-$box-background: #414040;
-$buttonColor: #a70b0b;
-$favbtn: #F1BA0A;
-
-
-*{
-  margin: 0;
-  padding: 0;
-  border: 0;
-  box-sizing: border-box;
-}
-body {
-  display: flex;
+main.main-herocard{
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  min-height: 100vh;
-  background: #333;
-  font-family: system-ui;
-}
 
-main{
-  width: 1440px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
-
-.container {
- display: flex;
- flex-direction: column;
- justify-content: center;
- align-items: center;
-}
-
-
-.seller-info-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  margin-bottom: 5%;
-  img{
-    width: 4em;
-    border-radius: 50%;
-    margin-bottom:10px ;
-  }
-
-  #user-card{
-    background-color: $box-background;
-    box-shadow:  2px 2px 5px $box-shadow;
-    border-radius: 10px;
-    text-decoration: none;
-    color: white;
+  .herocard-container{
+    background-image: url('/images/stage.png');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    width: auto;
+    min-height: 58em;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 175px;
-    width: 25%;
 
-    p{
-      font-weight: bold;
-      font-size: 1.25em;
+    .card {
+      position: relative;
+      width: 300px;
+      height: 420px;
+      margin-top: -15em;
+      transform-style:preserve-3d;
+      transition: all 0.5s ease-in;
+      cursor: pointer;
+
+      &:hover{
+        transform: rotateY(180deg);
+      }
+
+      .card-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 120%;
+
+
+        &.front{
+          backface-visibility: hidden;
+        }
+
+        &.back{
+          backface-visibility: hidden;
+          transform: rotateY(180deg)
+        }
+
+
+      }
     }
   }
 
-  #card-info{
-    background-color: $box-background;
-    box-shadow:  2px 2px 5px $box-shadow;
-    border-radius: 10px;
-    margin: 0 10px;
-    color: white;
-    height: 175px;
-    width: 50%;
-  }
+ .info-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: -5em 0 2em 0;
 
-  #player-card{
-    margin: 10px;
-  }
-
-  #description{
-    display: flex;
-    flex-direction: column;
-    text-align: start;
-    margin: 10px;
-    font-size: 14px;
-  }
-
-  .description-list{
-    margin-bottom: 3px;
-  }
-
-  #price-info{
-    background-color: $box-background;
-    box-shadow:  2px 2px 5px $box-shadow;
-    border-radius: 10px;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 175px;
-    width:25%;
-
-    span{
-      margin-top: 20px;
-      font-size: 32px;
-      font-weight: bolder;
-      color: yellow;
-    }
-    #favourites{
-      text-decoration: none;
-      color: white;
-      margin: 20px 0;
+    .info-block{
+      min-width: 20em;
       display: flex;
       flex-direction: column;
-    }
-    #contact-btn{
-      font-size: 12px;
-      text-decoration: none;
-      background-color: #a70b0b;
+      justify-content: center;
+      align-items: center;
+      background-color: #3F3F3F;
+      border-top: 1px solid #5F5F5F;
+      filter: drop-shadow(5px 5px 5px #292929);
+      border-radius: 1em;
+      padding: 2em;
       color: white;
-      padding: 7px 20px;
-      border-radius: 30px;
-      margin-bottom: 10px;
-      text-align: center;
-      width: 160px;
-    }
-    #fav-btn {
-      font-size: 12px;
-      background-color: $favbtn;
-      padding: 7px 30px;
-      border-radius: 30px;
-      margin-bottom: 10px;
-      text-align: center;
-      width: 160px;
+      margin: 0 1em;
 
-      &:hover{
-        color: black;
-        opacity: 75%;
-        cursor: pointer;
-    }
-  }
-  #remove-btn{
-      font-size: 12px;
-      background-color: $favbtn;
-      padding: 7px 30px;
-      border-radius: 30px;
-      margin-bottom: 10px;
-      text-align: center;
-      width: 160px;
-
-      &:hover{
-        color: black;
-        opacity: 75%;
-        cursor: pointer;
+      img.avatar {
+        border-radius: 50%;
+        width: 8em;
       }
+
+      h2{
+        &.user-name{
+          margin-top: 1em;
+        }
+      }
+
+      p:first-of-type{
+        margin-top: 1em;
+      }
+
+      p:last-of-type{
+        margin-top: 1em;
+      }
+
+      p{
+        text-transform: capitalize;
+      }
+
+      span{
+        font-size: 2em;
+        font-weight: bolder;
+        color: #F6DE26;
+      }
+
+      .button-container{
+        width: auto;
+        height: 6.5em;
+        display: flex;
+        flex-direction: column;
+        margin-top: 1em;
+
+        .contact-btn{
+          background-color: #A70B0B;
+          border-radius: 2em;
+          font-weight: bold;
+          color: white;
+          padding: 0.8em;
+          width: 200px;
+          cursor: pointer;
+          text-align: center;
+          margin-top: 1em;
+
+          &:hover{
+            background-color: #b80e0e;
+          }
+        }
+
+        .fav-btn{
+          background-color: #F1BA0A;
+          border-radius: 2em;
+          font-weight: bold;
+          color: black;
+          padding: 0.8em;
+          width: 200px;
+          cursor: pointer;
+          text-align: center;
+
+          &:hover{
+            background-color: #edc951;
+          }
+        }
+      }
+    }
   }
 }
-
-}
-
-
-body{
-  background-color:  #333; ;
-}
-
-

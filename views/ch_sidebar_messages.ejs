@@ -22,15 +22,10 @@
   <ul class="message-list">
     <% for (let message of messages) { %>
       <li class="message" id="<%= message.card_id %>">
-        <% if (message.sender[0].id === userID) { %>
-        <h3><%= message.receiver[0].name %></h3>
-        <p>You: <%= message.message %></p>
-        <% } else { %>
-        <h3><%= message.sender[0].name %></h3>
-        <p><%= message.sender[0].name %>: <%= message.message %></p>
-        <% } %>
+        <h3><%= message.sender_id === userID ? message.receiver : message.sender %></h3>
+        <p><%= message.sender_id === userID ? 'You' : message.sender %>: <%= message.message %></p>
       </li>
-      <div class="template-vars <%= message.id %>" style="display: none;" data-user-name="<%= message.sender[0].id === userID ? message.receiver[0] : message.sender[0] %>"></div>
+      <div class="template-vars <%= message.id %>" style="display: none;" data-user-name="<%= message.sender_id === userID ? message.receiver : message.sender %>"></div>
     <% } %>
     <div id="new-user" style="display: none;" data-user-name="<%= user[0].name %>"></div>
   </ul>

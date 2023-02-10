@@ -3,6 +3,7 @@ const router  = express.Router();
 const cardQueries = require('../db/queries/getCard');
 
 router.get('/:id', (req, res) => {
+  const currentURL = '/'
   const userID = req.session.user_id;
   const cardID = req.params.id;
   const queryArr = [ cardQueries.getCard(cardID) ];
@@ -12,7 +13,8 @@ router.get('/:id', (req, res) => {
       userID: +userID,
       sender_id: +userID,
       card_id: +cardID,
-      receiver_id: values[0][0].user_id
+      receiver_id: values[0][0].user_id,
+      currentURL
     }
 
     res.render('ch_messages', templateVars);

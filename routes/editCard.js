@@ -3,7 +3,7 @@ const router  = express.Router();
 const cardQueries = require('../db/queries/getCard');
 
 router.get('/:id/edit', (req, res) => {
-  const currentURL = '/cards/edit'
+  const currentURL = '/';
   const userID = req.session.user_id;
   const cardID = req.params.id;
   const queryArr = [ cardQueries.getCard(cardID) ];
