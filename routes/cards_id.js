@@ -13,7 +13,6 @@ router.get('/:id', (req, res) => {
 
   Promise.all(queryArr)
   .then((response) => {
-
     for (result of response){
       'user_id' in result[0] ? templateVars.card = result[0] : templateVars.favourites = result[0];
     }
