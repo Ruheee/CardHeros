@@ -9,7 +9,7 @@ router.get('/:id', (req, res) => {
   const cardID = req.params.id;
   const templateVars = { userID };
 
-  const queryArr = [ messagesQueries.getMessages(userID, cardID) ];
+  const queryArr = [ messagesQueries.getMessages(userID, cardID, true) ];
 
   Promise.all(queryArr).then((values) => {
     templateVars.messages = values[0];

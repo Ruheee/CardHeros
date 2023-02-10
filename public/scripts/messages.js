@@ -1,30 +1,30 @@
 $("#message-form").submit(function(event) {
   event.preventDefault();
   const form = this;
-  const messageID = form.action.split('/')[4];
+  const cardID = form.action.split('/')[4];
 
   $.ajax({
     url: form.action,
     type: "POST",
-    data: { message: $("textarea[name='message").val() },
+    data: { message: $("textarea[name='message']").val() },
   })
   .then(res => {
     if(window.parent.location.href.split('/').length > 4) {
       window.parent.location.href = '/messages'
     } else {
-      $("textarea[name='message").val('');
-      updateMessageFrame(messageID);
+      $("textarea[name='message']").val('');
+      updateMessageFrame(cardID);
       updateSidebarFrame();
     }
   })
 });
 
-function updateMessageFrame(messageID) {
+function updateMessageFrame(cardID) {
   let messageFrame = document.getElementById('message-frame');
-  messageFrame.src = '/message/' + messageID;
+  messageFrame.src = '/message/' + cardID;
 
   let form = document.querySelector('#message-form');
-  form.action = '/message/' + messageID;
+  form.action = '/message/' + cardID;
 }
 
 function updateSidebarFrame() {

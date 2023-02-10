@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
   const userID = req.session.user_id;
   const templateVars = { userID, user:[{}] };
   const lastMessages = [];
-  const cardIDs = new Map();
+  const cardIDs = new Set();
 
   const queryArr = [ messagesQueries.getMessages(userID) ];
 
@@ -15,13 +15,10 @@ Promise.all(queryArr).then((values) => {
 
   for (const message of messages) {
     if (!cardIDs.has(message.card_id)) {
-      cardIDs.set(message.card_id, message);
-    } else {
-      cardIDs.set(message.card_id, message);
+      cardIDs.add(message.card_id);
+      lastMessages.push(message);
     }
   }
-
-  lastMessages.push(...cardIDs.values());
 
   templateVars.messages = lastMessages;
   res.render('ch_sidebar_messages', templateVars);

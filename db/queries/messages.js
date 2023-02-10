@@ -22,7 +22,7 @@
 
 const db = require('../connection');
 
-const getMessages = (userID, cardID = '') => {
+const getMessages = (userID, cardID = '', invert = false) => {
 
   let varArr = [ userID ];
   let query = `
@@ -44,7 +44,7 @@ const getMessages = (userID, cardID = '') => {
     query += `AND m.card_id = $2`;
   }
 
-  query += `ORDER BY timestamp DESC;`;
+  query += invert ? `ORDER BY timestamp ASC;` : `ORDER BY timestamp DESC`
 
   return db.query(query, varArr)
     .then(data => {
