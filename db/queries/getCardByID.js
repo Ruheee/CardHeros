@@ -1,18 +1,17 @@
 const db = require('../connection');
 
-
-
-const getCardById = (cardId) => {
+const getCardByID = ( cardID ) => {
   return db
   .query(`
-  SELECT *
+  SELECT cards.*, users.name AS user_name
   FROM cards
-  WHERE id = $1;
-  `, [cardId])
+  JOIN users
+  ON cards.user_id = users.id
+  WHERE cards.id = $1;
+  `, [ cardID ])
   .then((result) => {
-    return result.rows[0];
+    return result.rows;
   })
 };
 
-
-module.exports = { getCardById };
+module.exports = { getCardByID };

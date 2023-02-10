@@ -4,8 +4,8 @@ const userByCardIDQueries = require ('../db/queries/userByCardId');
 const sendMessageQueries = require('../db/queries/sendMessage');
 
 router.post('/:id', (req, res) => {
-  const cardID = +req.params.id;
-  const userID = +req.session.user_id;
+  const cardID = req.params.id;
+  const userID = req.session.user_id;
   const message = req.body.message;
 
   const queryArr = [ userByCardIDQueries.getUserByCardID(cardID) ];

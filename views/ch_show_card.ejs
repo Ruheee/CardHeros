@@ -32,7 +32,7 @@
 
   <div class="info-container">
     <div class="info-block">
-      <img class="avatar" src="https://i.pravatar.cc/200?img=<%= card.seller_name %>">
+      <img class="avatar" src="https://i.pravatar.cc/200?img=<%= card.user_id %>">
       <h2 class="user-name"><%= card.name %></h2>
     </div>
     <div class="info-block">
@@ -48,7 +48,7 @@
         <form action="<%= favourites.count === '0' ? `/herocard/${card.id}` : `/herocard/remove/${card.id}` %>" method="POST">
         <button class="fav-btn"><%= favourites.count === '0' ? 'Add to favourites' : 'Remove' %></button>
         </form>
-        <% if(card.user_id != userID) { %>
+        <% if(userID && card.user_id != userID) { %>
           <a href="/messages/<%= card.id %>" class="contact-btn">Contact Seller</a>
         <% } %>
       </div>
