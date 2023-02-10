@@ -1,19 +1,23 @@
 const express = require('express');
 const router  = express.Router();
-const checkFavourite = require('../db/queries/addNewFav');
-const getSellerName = require('../db/queries/users');
+const favouriteQueries = require('../db/queries/checkFavourite');
+const cardQueries = require('../db/queries/getCard');
 
 router.get('/:id', (req, res) => {
   const cardID = req.params.id;
   const currentURL = `/herocard/${cardID}`
   const userID = req.session.user_id;
   let templateVars = { userID, currentURL };
-  const queryArr = [checkFavourite.checkFavourite(userID, cardID),
-    getSellerName.getCardInfo(cardID)]
+
+  const queryArr = [ favouriteQueries.checkFavourite(userID, cardID), cardQueries.getCard(cardID) ]
+
   Promise.all(queryArr)
   .then((response) => {
-    templateVars['cards'] = response[1];
-    templateVars['favourites'] = response[0];
+
+    for (result of response){
+      'user_id' in result[0] ? templateVars.card = result[0] : templateVars.favourites = result[0];
+    }
+
     res.render('ch_show_card', templateVars);
   })
 })
