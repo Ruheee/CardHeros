@@ -3,14 +3,15 @@ const router  = express.Router();
 const messagesQueries = require('../db/queries/messages');
 
 router.get('/', (req, res) => {
-  const currentURL = '/messages'
+  const currentURL = '/'
   const userID = req.session.user_id;
-  const templateVars = { userID: +userID, card_id: '', currentURL };
+  const cardID = '';
+  const templateVars = { currentURL, userID, cardID };
 
   const queryArr = [ messagesQueries.getMessages(userID) ];
 
   Promise.all(queryArr).then((values) => {
-    templateVars.firstMessage = values[0][0].id;
+    templateVars.firstMessage = values[0][0].card_id;
     res.render('ch_messages', templateVars);
   });
 });

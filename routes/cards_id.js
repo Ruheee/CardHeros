@@ -3,11 +3,9 @@ const router  = express.Router();
 const checkFavourite = require('../db/queries/addNewFav');
 const getSellerName = require('../db/queries/users');
 
-
-
 router.get('/:id', (req, res) => {
-  const currentURL = '/cards/id'
   const cardID = req.params.id;
+  const currentURL = `/herocard/${cardID}`
   const userID = req.session.user_id;
   let templateVars = { userID, currentURL };
   const queryArr = [checkFavourite.checkFavourite(userID, cardID),

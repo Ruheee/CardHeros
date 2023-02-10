@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title><%= card_id ? 'New Message' : 'My Messages' %> | Card Heroes</title>
+  <title><%= cardID ? 'New Message' : 'My Messages' %> | Card Heroes</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -16,7 +16,6 @@
   <link rel="stylesheet" href="/styles/header.css">
   <link rel="stylesheet" href="/styles/footer.css"/>
 
-  <!-- Fonts and icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
@@ -27,18 +26,17 @@
 </head>
 
 <body>
-  <!-- header -->
   <%- include('partials/_header') %>
   <main class="main-messages">
-    <h1><%= card_id ? 'New Message' : 'My Messages' %></h1>
+    <h1><%= cardID ? 'New Message' : 'My Messages' %></h1>
     <section class="message-block">
-      <iframe id="sidebar-messages-frame" frameborder="0" allowfullscreen src="<%= card_id ? `/sidebar-messages/${card_id}` : `/sidebar-messages` %>"></iframe>
+      <iframe id="sidebar-messages-frame" frameborder="0" src="<%= cardID ? `/sidebar-messages/${cardID}` : `/sidebar-messages` %>"></iframe>
       <div class="message-bar">
-        <iframe id="message-frame" frameborder="0" allowfullscreen src="<%= card_id ? `/new-message/${card_id}` : `/message/${firstMessage}` %>"></iframe>
-        <form id="message-form" action="<%= card_id ? `/new-message/${card_id}` : `/message/${firstMessage}` %>" method="POST">
+        <iframe id="message-frame" frameborder="0" src="<%= cardID ? `/new-message/${cardID}` : `/message/${firstMessage}` %>"></iframe>
+        <form id="message-form" action="<%= cardID ? `/new-message/${cardID}` : `/message/${firstMessage}` %>" method="POST">
           <textarea id="message-textarea" name="message" required></textarea>
           <div class="button-container">
-            <% if (card_id) { %>
+            <% if (cardID) { %>
             <input class="cancel-message" type="submit" value="Cancel">
             <% } %>
             <input class="submit-message" type="submit" value="Submit">
@@ -47,9 +45,6 @@
       </div>
     </section>
   </main>
-  <!-- footer -->
   <%- include('partials/_footer') %>
-
 </body>
-
 </html>
