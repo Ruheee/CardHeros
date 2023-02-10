@@ -25,7 +25,7 @@
         <h3><%= message.sender_id === userID ? message.receiver : message.sender %></h3>
         <p><%= message.sender_id === userID ? 'You' : message.sender %>: <%= message.message %></p>
       </li>
-      <div class="template-vars <%= message.id %>" style="display: none;" data-user-name="<%= message.sender_id === userID ? message.receiver : message.sender %>"></div>
+      <div class="template-vars <%= message.card_id %>" style="display: none;" data-user-name="<%= message.sender_id === userID ? message.receiver : message.sender %>"></div>
     <% } %>
     <div id="new-user" style="display: none;" data-user-name="<%= user[0].name %>"></div>
   </ul>

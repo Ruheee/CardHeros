@@ -48,7 +48,7 @@
         <form action="<%= favourites.count === '0' ? `/herocard/${card.id}` : `/herocard/remove/${card.id}` %>" method="POST">
         <button class="fav-btn"><%= favourites.count === '0' ? 'Add to favourites' : 'Remove' %></button>
         </form>
-        <% if(card.user_id != userID) { %>
+        <% if(userID && card.user_id != userID) { %>
           <a href="/messages/<%= card.id %>" class="contact-btn">Contact Seller</a>
         <% } %>
       </div>

@@ -21,7 +21,7 @@ $('.filter-select').change(function (){
         const cardElement = `
           <div class="card-container">
             <div class="card">
-              <a href="/cards/${card.id}">
+              <a href="/herocard/${card.id}">
                 <div class="card-img" style="background-image: url('${card.card_front_url}');"></div>
               </a>
             </div>
