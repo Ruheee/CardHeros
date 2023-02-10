@@ -18,8 +18,6 @@ $(() => {
 
   } else {
     messages.forEach(message => {
-
-      console.log(message)
       if (message.id === cardID) {
         message.classList.add('new-message');
         userName = $(`.template-vars ${message.id}`).data('user-name');
