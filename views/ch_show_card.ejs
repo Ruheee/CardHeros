@@ -45,11 +45,13 @@
     <div class="info-block">
       <span>$ <%= card.price %>.00</span>
       <div class="button-container">
+        <% if(userID) { %>
         <form action="<%= favourites.count === '0' ? `/herocard/${card.id}` : `/herocard/remove/${card.id}` %>" method="POST">
         <button class="fav-btn"><%= favourites.count === '0' ? 'Add to favourites' : 'Remove' %></button>
         </form>
+        <% } %>
         <% if(userID && card.user_id != userID) { %>
-          <a href="/messages/<%= card.id %>" class="contact-btn">Contact Seller</a>
+        <a href="/messages/<%= card.id %>" class="contact-btn">Contact Seller</a>
         <% } %>
       </div>
     </div>
